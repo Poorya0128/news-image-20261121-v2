@@ -187,3 +187,63 @@ def flag(code):
         "NG": '<rect width="6" height="12" fill="#008751"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#008751"/>',
     }[code]
     return f'<svg class="flag" width="18" height="12" viewBox="0 0 18 12">{f}</svg>'
+
+
+# ------------------------------------------------------------------ new card drawings
+def sinaloa_c():
+    b = '<rect width="160" height="56" fill="#121a30"/>'
+    b += '<path d="M40 14 L22 56 L64 56Z M112 10 L94 56 L136 56Z" fill="#fff7c2" opacity=".16"/>'
+    b += '<g fill="#000"><g transform="translate(40 12)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g>'
+    b += '<g transform="translate(112 9) scale(.85)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g></g>'
+    b += '<rect y="44" width="160" height="12" fill="#2a2228"/>'
+    for x in (58, 98):
+        b += (f'<g transform="translate({x} 44)"><rect y="-9" width="22" height="9" fill="#111"/><rect x="22" y="-6" width="8" height="6" fill="#111"/>'
+              f'<path d="M3 -9 C1 -17 7 -19 5 -26 C11 -21 10 -15 13 -13 C14 -18 18 -20 17 -27 C24 -20 23 -13 20 -9Z" fill="#ff7a1a"/></g>')
+    b += tag(4, 22, "11 KILLED", "#fff", "#111", 9)
+    return svg(b)
+
+
+def hormuz_c():
+    b = '<rect width="160" height="56" fill="#2c6e9e"/>'
+    b += '<path d="M0 0 H160 V14 L132 18 L110 12 L84 16 L60 10 L30 12 L0 8Z" fill="#e2cf9f"/>'
+    b += '<path d="M0 56 V40 L30 38 L60 44 L78 34 L88 30 L96 38 L104 48 L130 52 L160 50 V56Z" fill="#e2cf9f"/>'
+    b += '<text x="66" y="9" font-size="8.5" font-weight="800" fill="#5e4a1e" letter-spacing="2">IRAN</text>'
+    for x, y in ((92, 24), (112, 30)):
+        b += (f'<g transform="translate({x} {y})"><path d="M-9 0 L9 0 L7 4 L-7 4Z" fill="#111"/><path d="M-2 -1 l1.5 -7 l1.5 4 l2 -6 l1 7z" fill="#ffd36b"/></g>')
+    b += '<g transform="translate(140 34)"><path d="M-9 0 L9 0 L7 4 L-7 4Z" fill="#111" opacity=".7"/><text x="0" y="-2" font-size="9" font-weight="800" fill="#fff" text-anchor="middle">?</text></g>'
+    b += tag(4, 22, "2 HIT · UKMTO", "#fff", "#111", 8.5)
+    return svg(b)
+
+
+# ------------------------------------------------------------------ new lead drawings 328x132
+def lead_svg(body):
+    return (f'<svg width="328" height="132" viewBox="0 0 328 132" xmlns="http://www.w3.org/2000/svg" font-family="Small">{body}</svg>')
+
+
+def bitcoin_lead():
+    pts = [(20, 30), (50, 34), (80, 44), (110, 62), (140, 84), (162, 98), (176, 90), (200, 74), (232, 62), (266, 54), (300, 50)]
+    b = '<rect width="328" height="132" fill="#12161d"/>'
+    for y in (30, 56, 82, 108):
+        b += f'<line x1="14" y1="{y}" x2="314" y2="{y}" stroke="#262c38"/>'
+    b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in pts) + ' L300 116 L20 116Z" fill="#f7931a" opacity=".12"/>'
+    b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in pts) + '" stroke="#f7931a" stroke-width="3" fill="none" stroke-linejoin="round"/>'
+    b += '<circle cx="162" cy="98" r="4.5" fill="#fff"/><circle cx="300" cy="50" r="4.5" fill="#fff"/>'
+    b += tag(172, 98, "LOW ~$55,300", "#fff", "#111", 9.5)
+    b += tag(20, 96, "LOWEST SINCE SEPT 2024", "#f7931a", "#111", 9)
+    b += tag(314, 30, "$60,192 AT 15:16 UTC", "#f7931a", "#111", 10, "end")
+    b += '<text x="20" y="128" font-size="9.5" font-weight="700" fill="#8a93a6">SAT 00:00 UTC</text><text x="314" y="128" font-size="9.5" font-weight="700" fill="#8a93a6" text-anchor="end">15:16</text>'
+    return lead_svg(b)
+
+
+def riemann_lead():
+    b = '<rect width="328" height="132" fill="#f1edff"/>'
+    b += '<rect x="40" y="0" width="64" height="132" fill="#e0d8ff"/>'
+    b += '<path d="M8 66 H140 M40 0 V132" stroke="#8a84a8" stroke-width="1.2"/>'
+    b += '<path d="M72 0 V132" stroke="#5b3a8c" stroke-width="2.6" stroke-dasharray="6 3"/>'
+    b += '<g fill="#5b3a8c">' + ''.join(f'<circle cx="72" cy="{y}" r="4"/>' for y in (12, 28, 46, 86, 104, 120)) + '</g>'
+    b += '<text x="78" y="62" font-size="11" font-weight="800" fill="#5b3a8c">Re(s) = ½</text>'
+    b += '<text x="156" y="44" font-size="28" font-weight="800" fill="#2a1a4a">ζ(s) = 0</text>'
+    b += '<text x="156" y="62" font-size="10" font-weight="700" fill="#5b3a8c">ALL ZEROS ON THE LINE</text>'
+    b += tag(156, 72, "LEAN + MATHLIB: CORRECT", "#2a1a4a", "#fff", 9.5)
+    b += tag(156, 92, "CLAUDE-AIDED PROOF", "#fff", "#2a1a4a", 9.5)
+    return lead_svg(b)

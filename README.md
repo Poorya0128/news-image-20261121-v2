@@ -1,6 +1,6 @@
 # The One-Day World: Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **50 stories**, 15 of them illustrated with drawings made for that story. Every story is colour-coded by region, and every card carries its verification status and source.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **35 stories**, 13 of them illustrated with drawings made for that story. Every story is colour-coded by region, and every illustrated story carries its verification status and source.
 
 ![entry](entry.png)
 
@@ -13,16 +13,18 @@ This is an entry for make.fun's "Sum up 21 November's world news in one image" b
   - **REPORTED** marks an earlier event first made public on Saturday.
 
 ## Layout
-Modelled on the strengths of past winning entries:
-1. **Light masthead** with the date in 56 px type.
-2. **Proportional 00:00–24:00 UTC timeline** with 9 exact times, each tied to its story number.
-3. **3 illustrated leads** and **12 illustrated cards** (6 per row). Each one carries a status chip with its source.
-4. **Simple world map:** numbered pins for the illustrated stories, region-coloured dots for the briefs.
-5. **Date-check table** listing each story left out and its date.
-6. **35 one-line briefs**, each with a number, a region colour and a drawn country flag.
-7. **Footer** explaining the labels.
+Modelled on the top three entries of the 20 November bounty:
+1. **Light masthead:** the date in 54 px type, with a one-line summary of the day's four biggest stories.
+2. **"The day in UTC":** 8 exact times, each tied to its story number.
+3. **"The day in numbers":** 8 key figures, each tied to its story.
+4. **Region bar** with counts.
+5. **3 leads** on the day's biggest stories (the Baltic strike, Bitcoin's slump, the Riemann proof), each with a banner label on its drawing and a status chip.
+6. **10 cards**, 5 per row. Each card has a header band in its region colour carrying the story number, a label and the confirmed source.
+7. **Simple world map** and **22 one-line briefs** with flags, numbers and labels.
+8. **Date check** listing earlier news and items not yet due ("Not yet").
+9. **Footer** explaining the labels and naming the sources.
 
-The smallest text on the page is 9.5 px, the same as in the winning entries. Small text uses normal-width Noto Sans. `SOURCES.md` lists links for all 50 stories.
+The smallest text on the page is 9.5 px. `SOURCES.md` lists links for all 35 stories.
 
 ## Run
 ```

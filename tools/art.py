@@ -45,7 +45,7 @@ def baltic(w=328, h=132):
     <path d="M110 46 Q150 52 190 66" stroke="#ffe1a8" stroke-width="1.4" stroke-dasharray="4 3" fill="none"/>
 
     <path d="M286 96 L306 96 L303 101 L289 101Z" fill="#f28c28"/>'''
-    b += _tag(8, 6, "2 DRONES · “LIKELY UKRAINIAN”, SAYS FINLAND", "#111", "#ffe1a8", 9.5)
+    b += _tag(150, 6, "2 DRONES · “LIKELY UKRAINIAN”", "#111", "#ffe1a8", 9.5)
     b += _tag(8, 90, "16 CREW EVACUATED", "#f28c28", "#111", 9.5)
     b += _cap(w, h, "GULF OF FINLAND · WEST OF SUURSAARI")
     return svg(w, h, b)

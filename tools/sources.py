@@ -67,6 +67,7 @@ LINKS["icj"] = ["https://www.timesofisrael.com/liveblog_entry/france-calls-for-u
 LINKS["ire"] = ["https://sports.yahoo.com/articles/south-africa-stumbles-nations-championship-190124713.html"]
 LINKS["pope"] = ["https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-meets-participants-in-the-international-space-forum.html"]
 LINKS["epl"] = ["https://global.espn.com/football/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal"]
+LINKS["baltic"] = LINKS.get("baltic", [])
 LINKS = {k: v for k, v in LINKS.items() if k in B.N}
 assert set(LINKS) == set(B.N), set(B.N) ^ set(LINKS)
 rows = []

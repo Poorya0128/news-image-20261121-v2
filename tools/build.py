@@ -35,109 +35,100 @@ REGIONS = {
     "GL": ("Global", "#4b3c93"),
 }
 
-# ---------------------------------------------------------------- 3 illustrated leads
+# ---------------------------------------------------------------- 3 illustrated leads: the day's biggest stories
 # status: ("CONFIRMED" | "CLAIM" | "REPORTED", sources)
 LEADS = [
-    dict(k="baltic", r="EU", t="Ukraine war", st=("CONFIRMED", "AFP · FINNISH MoD"), lon=26.9, lat=60.1,
+    dict(k="baltic", r="EU", t="Ukraine war", tag="BALTIC STRIKE", st=("CONFIRMED", "AFP · FINNISH MoD"), lon=26.9, lat=60.1,
          art=art.baltic(), h="Drones set Russian cargo ship ablaze off Finland",
-         p="Finland says the drones were likely Ukrainian. All 16 crew of the sanctioned Sparta II were evacuated."),
-    dict(k="hormuz", r="ME", t="Iran war", st=("CONFIRMED", "REUTERS · UKMTO"), lon=56.3, lat=26.6,
-         art=art.hormuz(), h="Two tankers hit by projectiles off Hormuz",
-         p="UKMTO: both near Oman’s Khasab, no casualties. Iran says a third hit a mine, which is unverified."),
-    dict(k="sinaloa", r="AM", t="Cartels", st=("CONFIRMED", "AP · REUTERS"), lon=-108.4, lat=25.6,
-         art=art.sinaloa(), h="“El Chapo Isidro” captured as 11 die in Sinaloa",
-         p="Fausto Isidro Meza Flores was seized in Guasave; 4 soldiers and 7 gunmen died."),
+         p="Finland says the drones were likely Ukrainian; all 16 crew of the sanctioned Sparta II were evacuated."),
+    dict(k="btc", r="GL", t="Markets", tag="CRYPTO SLUMP", st=("CONFIRMED", "REUTERS · INVESTING.COM"), lon=None, lat=None,
+         art=art2.bitcoin_lead(), h="Bitcoin hits a two-year low, then claws back",
+         p="It fell to about $55,300 overnight, the lowest since September 2024, then rose to $60,192."),
+    dict(k="riemann", r="GL", t="Maths & AI", tag="RIEMANN PROOF", st=("CONFIRMED", "GUARDIAN · SCI. AMERICAN"), lon=None, lat=None,
+         art=art2.riemann_lead(), h="Experts certify a Claude-aided Riemann proof",
+         p="The Lean and Mathlib communities say Levent Alpöge’s machine-checked proof of the 1859 problem is correct."),
 ]
 
-# ---------------------------------------------------------------- 12 drawn cards
+# ---------------------------------------------------------------- 10 drawn cards, 5 per row
 CARDS = [
-    dict(k="kryvyi", r="EU", t="Ukraine war", st=("CONFIRMED", "AP"), lon=33.4, lat=47.9, art=art2.kryvyi(),
-         h="Russian strike kills boy and medic in Kryvyi Rih"),
-    dict(k="france", r="EU", t="Protest", st=("CONFIRMED", "REUTERS"), lon=2.35, lat=48.9, art=art2.france(),
-         h="France marches for a sixth weekend"),
-    dict(k="eu", r="EU", t="Economy", st=("CONFIRMED", "AFP"), lon=4.35, lat=50.85, art=art2.eubudget(),
-         h="Costa cuts €204bn from EU budget plan"),
-    dict(k="robots", r="EU", t="Diplomacy", st=("CONFIRMED", "REUTERS"), lon=6.1, lat=46.2, art=art2.robots(),
-         h="UN “killer robot” talks end with no treaty"),
-    dict(k="cop", r="ME", t="Climate", st=("CONFIRMED", "REUTERS"), lon=30.7, lat=36.9, art=art2.cop31(),
-         h="COP31 stalls on fossil fuels, a day late"),
-    dict(k="gaza", r="ME", t="Gaza", st=("CONFIRMED", "REUTERS"), lon=34.45, lat=31.5, art=art2.gaza(),
-         h="Israeli strike on a vehicle kills 3 in Gaza"),
-    dict(k="peru", r="AM", t="Quake", st=("CONFIRMED", "USGS"), lon=-76.0, lat=-10.9, art=art2.peru(),
-         h="M6.7 quake shakes Peru’s Andes"),
-    dict(k="quake", r="AP", t="Quake", st=("CONFIRMED", "USGS"), lon=127.5, lat=-7.7, art=art2.banda(),
-         h="Deep M6.8 quake felt in Timor and Darwin"),
-    dict(k="mama", r="AP", t="Music", st=("CONFIRMED", "KOREA HERALD"), lon=135.5, lat=34.7, art=art2.mama(),
-         h="BTS sweep five MAMA awards in Osaka"),
-    dict(k="btc", r="GL", t="Markets", st=("CONFIRMED", "REUTERS"), lon=None, lat=None, art=art2.bitcoin(),
-         h="Bitcoin hits two-year low, then rebounds"),
-    dict(k="bepi", r="GL", t="Space", st=("CONFIRMED", "ESA · AP"), lon=None, lat=None, art=art2.bepi(),
-         h="BepiColombo enters orbit around Mercury"),
-    dict(k="riemann", r="GL", t="Maths & AI", st=("CONFIRMED", "GUARDIAN"), lon=None, lat=None, art=art2.riemann(),
-         h="Experts certify AI-aided Riemann proof"),
+    dict(k="sinaloa", r="AM", t="Cartels", tag="SINALOA", st=("CONFIRMED", "AP"), lon=-108.4, lat=25.6, art=art2.sinaloa_c(),
+         h="“El Chapo Isidro” captured; 11 die", p="FBI Top Ten fugitive seized."),
+    dict(k="hormuz", r="ME", t="Iran war", tag="HORMUZ", st=("CONFIRMED", "UKMTO"), lon=56.3, lat=26.6, art=art2.hormuz_c(),
+         h="Two tankers hit by projectiles", p="Iran: a third hit a mine."),
+    dict(k="kryvyi", r="EU", t="Ukraine war", tag="KRYVYI RIH", st=("CONFIRMED", "AP"), lon=33.4, lat=47.9, art=art2.kryvyi(),
+         h="Missiles kill a boy, 7, and a medic", p="60 hurt, AP says."),
+    dict(k="gaza", r="ME", t="Gaza", tag="GAZA CITY", st=("CONFIRMED", "REUTERS"), lon=34.45, lat=31.5, art=art2.gaza(),
+         h="Israeli strike on a vehicle kills 3", p="WCK: it was not our vehicle."),
+    dict(k="cop", r="ME", t="Climate", tag="COP31", st=("CONFIRMED", "REUTERS"), lon=30.7, lat=36.9, art=art2.cop31(),
+         h="Climate talks stall a day past deadline", p="Fossil-fuel wording splits it."),
+    dict(k="robots", r="EU", t="Diplomacy", tag="KILLER ROBOTS", st=("CONFIRMED", "REUTERS"), lon=6.1, lat=46.2, art=art2.robots(),
+         h="UN arms talks end with no treaty", p="Talks go on until 2028."),
+    dict(k="eu", r="EU", t="Economy", tag="EU BUDGET", st=("CONFIRMED", "AFP"), lon=4.35, lat=50.85, art=art2.eubudget(),
+         h="Costa cuts €204bn from budget plan", p="Adds a Big Tech tax."),
+    dict(k="bepi", r="GL", t="Space", tag="MERCURY", st=("CONFIRMED", "ESA"), lon=None, lat=None, art=art2.bepi(),
+         h="BepiColombo enters orbit at Mercury", p="37-minute burn, 18:24 UTC."),
+    dict(k="quake", r="AP", t="Quake", tag="BANDA SEA", st=("CONFIRMED", "USGS"), lon=127.5, lat=-7.7, art=art2.banda(),
+         h="Deep M6.8 quake felt in Darwin", p="No tsunami, no damage."),
+    dict(k="mama", r="AP", t="Music", tag="MAMA AWARDS", st=("CONFIRMED", "K. HERALD"), lon=135.5, lat=34.7, art=art2.mama(),
+         h="BTS sweep five awards in Osaka", p="CORTIS take Song of the Year."),
 ]
 
 # ---------------------------------------------------------------- one-line briefs (flag, colour and number)
 # (key, region, flag, place, text, label, lon, lat)   label: "claim" | "report" | ""
 BRIEFS = [
     ("heli", "EU", "FI", "Finland", "Russian helicopter breach suspected", "", 26.2, 60.4),
-    ("blacksea", "EU", "RU", "Black Sea", "Russia hits a Ukraine ship", "claim", 31.5, 44.0),
+    ("blacksea", "EU", "RU", "Black Sea", "Russia says it hit cargo ship", "claim", 31.5, 44.0),
     ("front", "EU", "UA", "Ukraine", "Army logs 116 clashes", "claim", 37.2, 48.3),
-    ("kyiv", "EU", "GB", "Kyiv", "UK’s Streeting calls Putin a “killer”", "", 30.5, 50.4),
-    ("ams", "EU", "NL", "Amsterdam", "UK PM meets Dutch PM Jetten", "", 4.9, 52.4),
-    ("lisbon", "EU", "PT", "Lisbon", "Workers march for pay and housing", "", -9.1, 38.7),
+    ("france", "EU", "FR", "France", "Sixth weekend of cost-of-living protests", "", 2.35, 48.9),
     ("pope", "EU", "VA", "Vatican", "Pope warns of “enormous” tech risks", "", 12.45, 41.9),
-    ("icj", "EU", "FR", "Paris", "France seeks UN action on Myanmar", "", 2.35, 48.9),
-    ("eng", "EU", "ENG", "Rugby", "England 37–12 New Zealand, a record", "", -0.34, 51.46),
-    ("ire", "EU", "IE", "Rugby", "Ireland 20–17 South Africa", "", -6.23, 53.33),
+    ("eng", "EU", "ENG", "Rugby", "England 37–12 New Zealand", "", -0.34, 51.46),
     ("epl", "EU", "ENG", "Football", "Leeds win 4–1 at Chelsea", "", -0.19, 51.48),
-    ("aoun", "ME", "LB", "Beirut", "Aoun demands Israeli withdrawal", "", 35.5, 33.9),
-    ("unifil", "ME", "UN", "S. Lebanon", "UNIFIL hands posts to army", "", 35.3, 33.2),
-    ("israel", "ME", "IL", "Israel", "Bennett backs Eisenkot-led unity bid", "", 34.8, 32.1),
-    ("houthi", "ME", "YE", "Yemen", "Houthis said to fortify coast", "claim", 43.4, 12.8),
-    ("ufc", "ME", "QA", "UFC Doha", "Stirling knocks out Procházka", "", 51.5, 25.3),
+    ("aoun", "ME", "LB", "Lebanon", "Aoun demands an Israeli withdrawal", "", 35.5, 33.9),
+    ("israel", "ME", "IL", "Israel", "Bennett backs an Eisenkot-led coalition", "", 34.8, 32.1),
+    ("houthi", "ME", "YE", "Yemen", "Houthis said to fortify the coast", "claim", 43.4, 12.8),
+    ("peru", "AM", "PE", "Peru", "M6.7 quake at 00:09 UTC; Lima shakes", "", -76.0, -10.9),
     ("fbi", "AM", "US", "US", "Trump plays down FBI database hack", "", -77.0, 38.9),
     ("iran", "AM", "US", "US", "Trump wants a “permanent” Iran deal", "", -77.4, 39.4),
-    ("halifax", "AM", "CA", "Halifax", "Taiwan warns Carney on China", "", -63.6, 44.6),
     ("brazil", "AM", "BR", "Brazil", "Lula calls fiscal bill “an adjustment”", "", -47.9, -15.8),
-    ("cfb", "AM", "US", "US college", "Nebraska 31–28 Ohio State", "", -96.7, 40.8),
-    ("dar", "AP", "PK", "Islamabad", "Dar hopes for early US–Iran deal", "", 73.0, 33.7),
-    ("in", "AP", "IN", "Kharagpur", "Google gives IIT $5m for AI", "", 87.3, 22.3),
-    ("flu", "AP", "IN", "Tamil Nadu", "Bird-flu checks in Cuddalore", "", 79.8, 11.7),
-    ("bd", "AP", "BD", "Dhaka", "More troops sent to stop arson", "", 90.4, 23.8),
-    ("kr", "AP", "KR", "Seoul", "Ruling party eyes judge impeachment", "", 127.0, 37.5),
-    ("nk", "AP", "KP", "N. Korea", "Kim visits factories", "report", 125.8, 39.0),
-    ("tw", "AP", "TW", "Taipei", "2 PLA aircraft, 7 ships, 4 balloons", "", 121.5, 25.0),
+    ("in", "AP", "IN", "India", "Google gives IIT Kharagpur $5m for AI", "", 87.3, 22.3),
+    ("bd", "AP", "BD", "Bangladesh", "More troops sent to stop arson", "", 90.4, 23.8),
+    ("kr", "AP", "KR", "S. Korea", "Ruling party targets top judge", "", 127.0, 37.5),
+    ("nk", "AP", "KP", "N. Korea", "Kim visits school factories", "report", 125.8, 39.0),
     ("cric", "AP", "NZ", "Cricket", "India 486/4 v NZ in Wellington", "", 174.8, -41.3),
-    ("t20", "AP", "AU", "T20", "Australia beat England by 3 wickets", "", 144.98, -37.82),
-    ("eg", "AF", "EG", "Aswan", "Sisi urges global finance reform", "", 32.9, 24.1),
+    ("eg", "AF", "EG", "Egypt", "Sisi urges global finance reform", "", 32.9, 24.1),
     ("sudan", "AF", "SD", "Sudan", "RSF accused of killing children", "claim", 33.6, 13.6),
     ("oyo", "AF", "CG", "Congo", "Ruto at four-way security summit", "", 15.9, -1.0),
-    ("somalia", "AF", "SO", "Mogadishu", "Turkish army chief visits", "", 45.3, 2.0),
-    ("ng", "AF", "NG", "Ibadan", "Tinubu mutes rally after deaths", "", 3.9, 7.4),
 ]
 
-# (time in UTC hours, label, story key, above?)
+# (time label, text, story key)
 TIMELINE = [
-    (0.15, "00:09 Peru quake", "peru", 1),
-    (3.9, "~04:00 Geneva talks end", "robots", 0),
-    (6.83, "06:50 Sparta II hit", "baltic", 1),
-    (9.7, "09:42 Banda Sea quake", "quake", 0),
-    (10.57, "10:34 heli breach", "heli", 1),
-    (15.0, "15:00 Chelsea–Leeds", "epl", 0),
-    (15.27, "15:16 BTC $60k", "btc", 1),
-    (18.4, "18:24 Mercury burn", "bepi", 0),
-    (20.0, "20:00 116 clashes", "front", 1),
+    ("00:09", "Peru M6.7 quake", "peru"),
+    ("~04:00", "Geneva talks end", "robots"),
+    ("06:50", "Sparta II hit", "baltic"),
+    ("09:42", "Banda Sea M6.8", "quake"),
+    ("10:34", "Heli breach", "heli"),
+    ("15:16", "Bitcoin $60,192", "btc"),
+    ("18:24", "Mercury burn", "bepi"),
+    ("20:00", "116 clashes", "front"),
 ]
 
-LEFT_OUT = [
-    ("Russian missiles land in Poland", "Fri 20 Nov"),
-    ("Brazil supercell storm", "Fri 20 Nov"),
-    ("UK–EU summit deal", "Fri 20 Nov"),
-    ("Mlambo-Ngcuka dies", "Fri 20 Nov"),
-    ("Las Vegas GP", "Sun 22 Nov UTC"),
-    ("Sudamericana final", "ends Sun UTC"),
+# (figure, caption, story key)
+NUMBERS = [
+    ("16", "crew evacuated", "baltic"),
+    ("$55.3k", "Bitcoin low", "btc"),
+    ("1859", "Riemann’s year", "riemann"),
+    ("11", "dead in Sinaloa", "sinaloa"),
+    ("148", "drones at Ukraine", "kryvyi"),
+    ("128", "states in Geneva", "robots"),
+    ("€204bn", "EU budget cut", "eu"),
+    ("8 yrs", "to reach Mercury", "bepi"),
 ]
+
+SUMMARY = "Drones set a Russian ship ablaze off Finland · Bitcoin hits a two-year low · Experts certify an AI-aided Riemann proof · Mexico seizes “El Chapo Isidro”"
+
+LEFT_OUT = ("Left out as earlier news (Fri 20 Nov): Russian missiles landing in Poland, the Brazil supercell storm, the UK–EU deal, "
+            "Mlambo-Ngcuka’s death. Not yet: the Las Vegas GP (Sun 22 Nov UTC), the Sudamericana final (ends after 00:00 UTC), "
+            "COP31’s next draft (Sun 22), Mercury orbiters separate (9–10 Dec). Counted: Peru quake, 00:09 UTC.")
 
 SOURCES_LINE = "Reuters, AP, AFP, USGS, ESA, UKMTO, Finnish MoD, Korea Herald, Anadolu, ISW, KCNA; all links in SOURCES.md"
 
@@ -151,9 +142,6 @@ REG = {k: r for _, k, r in ORDER}
 COUNT = {r: sum(1 for _, _, rr in ORDER if rr == r) for r in REGIONS}
 assert sum(COUNT.values()) == TOTAL
 DRAWN = len(LEADS) + len(CARDS)
-for _, _, k, _ in TIMELINE:
-    assert k in N, k
-assert [t for t, *_ in TIMELINE] == sorted(t for t, *_ in TIMELINE)
 
 
 def badge(n, color, size="b"):
@@ -177,19 +165,23 @@ def status(st):
     return f'<span class="st rep">REPORTED</span><span class="ss">{e(src)}</span>'
 
 
+def banner(x):
+    return (f'<div class="ban" style="background:{rc(x["r"])}"><span>{N[x["k"]]}</span>{e(x["tag"])}</div>')
+
+
 def kicker(x):
-    return f'{badge(N[x["k"]], rc(x["r"]))}<span class="kick" style="color:{rc(x["r"])}">{e(REGIONS[x["r"]][0])} · {e(x["t"])}</span>'
+    return f'<span class="kick" style="color:{rc(x["r"])}">{e(REGIONS[x["r"]][0])} · {e(x["t"])}</span>'
 
 
 leads = "".join(
-    f'<div class="lead" style="--c:{rc(x["r"])}"><div class="art">{x["art"]}</div>'
+    f'<div class="lead" style="--c:{rc(x["r"])}"><div class="art">{x["art"]}{banner(x)}</div>'
     f'<div class="meta">{kicker(x)}<span class="right">{status(x["st"])}</span></div>'
     f'<h1>{e(x["h"])}</h1><p>{e(x["p"])}</p></div>' for x in LEADS)
 
 cards = "".join(
-    f'<div class="card" style="--c:{rc(x["r"])}"><div class="art2">{x["art"]}</div>'
-    f'<div class="meta">{kicker(x)}</div><h2>{e(x["h"])}</h2>'
-    f'<div class="stl">{status(x["st"])}</div></div>' for x in CARDS)
+    f'<div class="card" style="--c:{rc(x["r"])}"><div class="band" style="background:{rc(x["r"])}"><span class="n">{N[x["k"]]}</span>{e(x["tag"])}'
+    f'<span class="bs2">{CHECK if x["st"][0] == "CONFIRMED" else ""}{e(x["st"][1])}</span></div>'
+    f'<div class="art2">{x["art"]}</div><h2>{e(x["h"])}</h2><p>{e(x["p"])}</p></div>' for x in CARDS)
 
 LBL = {"claim": '<span class="st claim">CLAIM</span>', "report": '<span class="st rep">REPORTED</span>', "": ""}
 
@@ -203,28 +195,13 @@ half = (len(BRIEFS) + 1) // 2
 briefs_l = "".join(brief_html(b) for b in BRIEFS[:half])
 briefs_r = "".join(brief_html(b) for b in BRIEFS[half:])
 
-# proportional UTC timeline
-TL_W = 920
-tl = ['<svg class="tlsvg" width="920" height="40" viewBox="0 0 920 40">',
-      '<line x1="10" y1="20" x2="910" y2="20" stroke="#16181d" stroke-width="1.6"/>']
-for hr in range(0, 25, 3):
-    x = 10 + hr / 24 * 900
-    tl.append(f'<line x1="{x:.1f}" y1="17" x2="{x:.1f}" y2="23" stroke="#16181d" stroke-width="1"/>')
-tl.append('<text x="10" y="35" font-size="9.5" fill="#555" font-family="Small">00:00</text>'
-          '<text x="910" y="35" font-size="9.5" fill="#555" text-anchor="end" font-family="Small">24:00</text>')
-for t, label, k, up in TIMELINE:
-    x = 10 + t / 24 * 900
-    c = rc(REG[k])
-    y = 12 if up else 34
-    anchor = 'start' if x < 60 else ('end' if x > 860 else 'middle')
-    tl.append(f'<line x1="{x:.1f}" y1="20" x2="{x:.1f}" y2="{14 if up else 26}" stroke="{c}" stroke-width="1.4"/>'
-              f'<circle cx="{x:.1f}" cy="20" r="4" fill="{c}" stroke="#fff" stroke-width="1"/>'
-              f'<text x="{x:.1f}" y="{y}" font-size="11" font-weight="700" fill="#16181d" text-anchor="{anchor}" font-family="Small">'
-              f'<tspan fill="{c}" font-weight="800">{N[k]}</tspan> {e(label)}</text>')
-tl.append('</svg>')
-timeline = "".join(tl)
+timeline = "".join(f'<div class="tl"><b>{e(t)}{" UTC" if t[0] in "0123456789~" else ""}</b>'
+                   f'<span>{badge(N[k], rc(REG[k]), "t")}{e(x)}</span></div>' for t, x, k in TIMELINE)
+numbers = "".join(f'<div class="nm"><b>{e(v)}</b><span>{badge(N[k], rc(REG[k]), "t")}{e(c)}</span></div>' for v, c, k in NUMBERS)
+region_bar = "".join(f'<div style="flex:{COUNT[r]};background:{c}">{e(n)} {COUNT[r]}</div>' for r, (n, c) in REGIONS.items())
+for _, _, k in TIMELINE + NUMBERS:
+    assert k in N, k
 
-left_out = "".join(f'<div class="lo"><span>{e(a)}</span><b>{e(d)}</b></div>' for a, d in LEFT_OUT)
 legend = "".join(f'<span><i style="background:{c}"></i>{e(n)} {COUNT[r]}</span>' for r, (n, c) in REGIONS.items())
 
 # ---------------------------------------------------------------- map pins
@@ -245,7 +222,7 @@ MAPJS = f"""
   const land = {LAND};
   const water = {WATER};
   const pins = {json.dumps(pins)};
-  const W = 322, H = 108, B = {{lon0: -128, lon1: 180, lat0: 74, lat1: -46}};
+  const W = 300, H = 150, B = {{lon0: -128, lon1: 180, lat0: 74, lat1: -46}};
   const sx = W / (B.lon1 - B.lon0), sy = H / (B.lat0 - B.lat1);
   const P = (lon, lat) => [(lon - B.lon0) * sx, (B.lat0 - lat) * sy];
   const inside = (x, y, poly) => {{ let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {{
@@ -281,7 +258,7 @@ MAPJS = f"""
 CHECKJS = """
 (function () {
   const bad = [];
-  document.querySelectorAll('.lead, .card, .meta, .bt, .br, .lo, .foot, .top, .tlbox, .mapbox, .also, .acols > div, .bottom, .lead h1, .lead p, .card h2, .stl').forEach(el => {
+  document.querySelectorAll('.band, .lead, .card, .meta, .bt, .br, .foot, .top, .summary, .tl, .nm, .mapbox, .also, .acols > div, .bottom, .lead p, .card p, .dc, .rbar div').forEach(el => {
     if (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)
       bad.push(el.className + '[' + (el.scrollWidth - el.clientWidth) + 'x' + (el.scrollHeight - el.clientHeight) + ']:' + (el.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 34));
   });
@@ -296,22 +273,23 @@ CSS = open(os.path.join(ROOT, "tools", "style.css"), encoding="utf-8").read()
 PAGE = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>The One-Day World · Saturday 21 November 2026</title><style>{CSS}</style></head>
 <body><div class="page">
-<div class="top"><span class="tk">THE WORLD IN ONE DAY</span><span class="tc">{TOTAL} STORIES · {len(REGIONS)} REGIONS · {DRAWN} DRAWN · ALL FROM THIS SATURDAY (UTC)</span></div>
+<div class="top"><span class="tk">THE WORLD IN ONE DAY</span><span class="tc">{TOTAL} STORIES · {len(REGIONS)} REGIONS · {DRAWN} DRAWN · ALL FROM SATURDAY 21 NOVEMBER 2026</span></div>
 <div class="title">Saturday 21 November 2026</div>
-<div class="tlbox"><div class="tlh">THE DAY<br>IN UTC</div>{timeline}</div>
+<div class="summary">{e(SUMMARY)}</div>
+<div class="row"><div class="rl">THE DAY<br>IN UTC</div>{timeline}</div>
+<div class="row nums"><div class="rl">THE DAY<br>IN NUMBERS</div>{numbers}</div>
+<div class="rbar">{region_bar}</div>
 <div class="leads">{leads}</div>
 <div class="cards">{cards}</div>
 <div class="bottom">
-  <div class="mapbox"><div class="mh">WHERE IT HAPPENED <span>off map: {", ".join(map(str, OFFMAP))}</span></div>
-    <svg id="world" width="322" height="108" viewBox="0 0 322 108" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div class="lg">{legend}</div>
-    <div class="dc"><div class="dch">DATE CHECK · LEFT OUT, NOT SATURDAY UTC</div>{left_out}
-      <div class="dcn"><b>Counted:</b> Peru quake at 00:09 UTC Sat (19:09 Fri, Lima)</div></div></div>
-  <div class="also"><div class="ah">ALSO ON SATURDAY 21 NOVEMBER <span>{TOTAL - DRAWN} briefs · colour = region</span></div>
+  <div class="mapbox"><div class="mh">WHERE IT HAPPENED <span>dots = briefs · off map: {", ".join(map(str, OFFMAP))}</span></div>
+    <svg id="world" width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg"></svg></div>
+  <div class="also"><div class="ah">ALSO ON SATURDAY 21 NOVEMBER <span>{len(BRIEFS)} more · colour = region</span></div>
     <div class="acols"><div>{briefs_l}</div><div>{briefs_r}</div></div></div>
 </div>
-<footer class="foot"><div><b>Every story took place on Sat 21 Nov 2026 (UTC).</b> {CHECK}= confirmed by 2+ outlets or an official source · <span class="st claim">CLAIM</span> one side’s account · <span class="st rep">REPORTED</span> earlier event made public today</div>
-<div>Sources: {e(SOURCES_LINE)} · drawings made in code</div></footer>
+<div class="dc"><b class="dch">DATE CHECK</b> {e(LEFT_OUT)}</div>
+<footer class="foot"><div><b>Every story took place on Saturday 21 November 2026 (UTC).</b> {CHECK}= confirmed by 2+ outlets or an official source · <span class="st claim">CLAIM</span> one side’s account · <span class="st rep">REPORTED</span> earlier event made public today</div>
+<div>Sources: {e(SOURCES_LINE)} · original drawings</div></footer>
 </div><script>{MAPJS}</script><script>{CHECKJS}</script></body></html>'''
 
 open(os.path.join(ROOT, "poster", "index.html"), "w", encoding="utf-8").write(PAGE)
