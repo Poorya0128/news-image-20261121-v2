@@ -1,6 +1,10 @@
+[![make.fun bounty](https://make.fun/badge/news-image-20261121.svg)](https://make.fun/bounty/news-image-20261121)
+[![rank](https://make.fun/badge/news-image-20261121/Poorya0128/news-image-20261121-v2/rank.svg)](https://make.fun/bounty/news-image-20261121)
+[![reward](https://make.fun/badge/news-image-20261121/Poorya0128/news-image-20261121-v2/reward.svg)](https://make.fun/bounty/news-image-20261121)
+
 # The One-Day World: Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **35 stories**, 13 of them illustrated with drawings made for that story. Every story is colour-coded by region, and every illustrated story carries its verification status and source.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty ([`news-image-20261121`](https://make.fun/bounty/news-image-20261121)). It is a single 1024×1024 front page with **35 stories**, 13 of them illustrated with drawings made for that story. Every story is colour-coded by region, and every illustrated story carries its verification status and source.
 
 ![entry](entry.png)
 
@@ -28,7 +32,7 @@ The smallest text on the page is 9.5 px. `SOURCES.md` lists links for all 35 sto
 
 ## Run
 ```
-MAKEFUN_OUTPUT_DIR=./out python3 main.py      # or: MAKEFUN_OUTPUT_DIR=./out node main.ts
+MAKEFUN_OUTPUT_DIR=./out python3 main.py
 ```
 Without `MAKEFUN_OUTPUT_DIR` the program writes `/output/entry.png`. It uses only the standard library, with no network access, no clock and no randomness, so every run gives byte-identical output.
 
