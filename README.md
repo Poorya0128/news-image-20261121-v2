@@ -1,6 +1,6 @@
 # The One-Day World: Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **42 stories**, 11 of them illustrated with drawings made for that story. Every story is sourced and filed by region and topic.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **39 stories**, 11 of them illustrated with drawings made for that story. Every story is sourced and colour-coded by region.
 
 ![entry](entry.png)
 
@@ -9,29 +9,23 @@ This is an entry for make.fun's "Sum up 21 November's world news in one image" b
 - **Region:** each story is filed by where it happened, using the UN M49 grouping (Western Asia, including Turkey, counts as Middle East). Stories with no single location, such as crypto markets, an online proof check or a spacecraft at Mercury, are filed as "Global & space". Sport is filed by venue.
 - **Labels:**
   - **CLAIM** (the only red on the page) marks one side's word: a party to a conflict, or an unverified accusation, always attributed.
-  - **◆** marks an official statement or official data.
-- **Counts:** the region bar widths are the true shares of the 42 stories. The topic row shows War 11 · Politics 10 · Economy 3 · Disaster 2 · Climate 1 · Science 3 · Health 1 · Society 2 · Crime 2 · Culture 1 · Sport 6.
+  - A **green check** marks an official statement or official data.
+  - **REPORT** marks an earlier event first made public on Saturday.
+  - The illustrated stories 1–11 carry no label, because each is confirmed by two or more independent sources.
+- **Region bar:** each segment's width is the true share of the 39 stories.
 
 ## Layout
 1. **Masthead** with a "How to read" key.
-2. **Proportional region bar** and topic counts.
-3. **UTC timeline** with 8 exact times, each linked to its story number.
-4. **3 illustrated leads:** Sparta II off Finland, Hormuz, Sinaloa.
-5. **8 cards**, each with a picture specific to its story:
-   - Kryvyi Rih's skyline and mine headframe
-   - the COP31 plenary with the disputed draft text
-   - the EU budget plans compared as bars
-   - Bitcoin's intraday price path
-   - BepiColombo at Mercury
-   - the Riemann critical line
-   - a map of the Banda Sea quake
-   - the Gaza vehicle strike, with each side's account attributed
-6. **Two maps:** a world map and a Europe & Middle East zoom. Every located story has a numbered pin, placed automatically so no pins overlap.
-7. **25 briefs** under region headings, each with a place, a source and a label where one applies.
-8. **6 sport results** by venue, each with its source.
-9. **Date check** and **source key**.
+2. **Proportional region bar.**
+3. **Large UTC timeline** with 8 exact times, each linked to its story number.
+4. **3 illustrated leads** and **8 illustrated cards**, each picture specific to its story.
+5. **Simple world map:** numbered pins for stories 1–11, and dots in the region colour for briefs and sport.
+6. **Structured date check:** what was counted, the edge case, the exception, and what fell too early or too late.
+7. **22 one-line briefs** at 14.5 px, colour-coded by region and numbered, each with its source and a label where one applies.
+8. **6 sport results** in a larger strip, each with its source.
+9. **Source key.**
 
-`SOURCES.md`, generated from the same data, lists links for all 42 stories.
+Small text uses normal-width Noto Sans, which stays sharp at small sizes. `SOURCES.md` lists links for all 39 stories.
 
 ## Run
 ```
