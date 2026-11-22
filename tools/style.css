@@ -65,15 +65,15 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 
 /* bottom */
 .bottom { display: flex; gap: 10px; margin-top: 6px; height: 228px; }
-.mapbox { width: 300px; flex: none; }
+.mapbox { width: 320px; flex: none; }
 .mh, .ah { font-size: 11px; font-weight: 800; letter-spacing: .12em; border-bottom: 2px solid #16181d; padding-bottom: 2px; margin-bottom: 3px; }
 #map { display: block; border: 1px solid #c8bea8; }
-.lg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px 6px; font-size: 10px; font-weight: 700; margin-top: 3px; }
+.lg { display: grid; grid-template-columns: repeat(3, 1fr); white-space: nowrap; gap: 1px 6px; font-size: 10px; font-weight: 700; margin-top: 3px; }
 .lg i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; vertical-align: 0; }
 .mn { font-size: 9.5px; color: #666; font-style: italic; margin-top: 1px; }
 .also { flex: 1; min-width: 0; }
 .acols { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 0 12px; }
-.br { display: flex; gap: 4px; align-items: center; height: 14.1px; min-width: 0; margin-bottom: 0; border-bottom: 1px dotted #cfc4ad; }
+.br { display: flex; gap: 4px; align-items: center; height: 14.8px; min-width: 0; margin-bottom: 0; border-bottom: 1px dotted #cfc4ad; }
 .bt { font-size: 11.5px; line-height: 12.6px; white-space: nowrap; overflow: hidden; min-width: 0; }
 .bt b { font-weight: 800; }
 .bs { font-size: 8.5px; font-weight: 700; color: #666; letter-spacing: .04em; margin-left: 4px; }
@@ -84,6 +84,7 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .sb small { font-size: 9px; color: #b3122e; letter-spacing: .08em; font-family: "Body"; }
 .spg { flex: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px 8px; }
 .sp { display: flex; gap: 4px; font-size: 11.5px; line-height: 12.5px; align-items: flex-start; white-space: nowrap; min-width: 0; }
+.sp .bs { font-size: 8px; margin-left: 2px; }
 .sp b { display: block; font-size: 8.5px; letter-spacing: .06em; text-transform: uppercase; color: #b3122e; line-height: 10px; }
 
 .check { margin-top: 4px; font-size: 10.5px; line-height: 13.5px; white-space: nowrap; background: #fff6d6; border: 1px solid #c9a227; padding: 3px 7px; }

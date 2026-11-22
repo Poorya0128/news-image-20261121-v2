@@ -40,15 +40,14 @@ def baltic(w=328, h=132):
     <path d="M190 70 C187 60 195 57 193 47 C201 53 200 60 204 63 C205 55 211 51 209 43 C219 52 218 62 215 70Z" fill="#ff7a1a"/>
     <path d="M196 70 C195 63 201 60 199 54 C205 59 205 64 207 66 C209 60 212 57 212 52 C217 59 216 66 213 70Z" fill="#ffd36b"/>
     <text x="178" y="92" font-size="9" font-weight="900" fill="#f3e9d8" letter-spacing="1.4">SPARTA II</text>
-    <g fill="#111"><path d="M60 26 l16 4 l-16 4 l3 -4z"/><path d="M66 30 l-4 -7 l3 0 l6 7z"/><path d="M66 30 l-4 7 l3 0 l6 -7z"/>
-    <path d="M92 42 l16 4 l-16 4 l3 -4z"/><path d="M98 46 l-4 -7 l3 0 l6 7z"/><path d="M98 46 l-4 7 l3 0 l6 -7z"/></g>
+    <g fill="#111"><g transform="translate(66 30)"><ellipse cx="0" cy="0" rx="13" ry="2.2"/><path d="M5 -1 L2 -14 L6 -14 L9 -1Z M5 1 L2 14 L6 14 L9 1Z"/>
+        <path d="M-10 -1 L-14 -6 L-12 -6 L-8 -1Z M-10 1 L-14 6 L-12 6 L-8 1Z"/><ellipse cx="-14" cy="0" rx="1.2" ry="5" fill="#666"/></g><g transform="translate(98 46)"><ellipse cx="0" cy="0" rx="13" ry="2.2"/><path d="M5 -1 L2 -14 L6 -14 L9 -1Z M5 1 L2 14 L6 14 L9 1Z"/>
+        <path d="M-10 -1 L-14 -6 L-12 -6 L-8 -1Z M-10 1 L-14 6 L-12 6 L-8 1Z"/><ellipse cx="-14" cy="0" rx="1.2" ry="5" fill="#666"/></g></g>
     <path d="M78 30 Q140 36 186 60" stroke="#ffe1a8" stroke-width="1.4" stroke-dasharray="4 3" fill="none"/>
     <path d="M110 46 Q150 52 190 66" stroke="#ffe1a8" stroke-width="1.4" stroke-dasharray="4 3" fill="none"/>
-    <g fill="#111" transform="translate(300 40) scale(.7)"><ellipse cx="0" cy="0" rx="13" ry="6"/><rect x="10" y="-2" width="20" height="3"/>
-    <rect x="-22" y="-9" width="44" height="2"/><rect x="-12" y="9.5" width="24" height="1.6"/></g>
+
     <path d="M286 96 L306 96 L303 101 L289 101Z" fill="#f28c28"/>'''
-    b += _tag(8, 6, "2 DRONES · LIKELY UKRAINIAN, SAYS FINLAND", "#111", "#ffe1a8", 9.5)
-    b += _tag(232, 54, "HELICOPTER 10:34", "#111", "#fff", 8.5)
+    b += _tag(8, 6, "2 DRONES · “LIKELY UKRAINIAN”, SAYS FINLAND", "#111", "#ffe1a8", 9.5)
     b += _tag(8, 90, "16 CREW EVACUATED", "#f28c28", "#111", 9.5)
     b += _cap(w, h, "GULF OF FINLAND · WEST OF SUURSAARI")
     return svg(w, h, b)
@@ -65,15 +64,19 @@ def hormuz(w=328, h=132):
     <text x="268" y="106" font-size="10" font-weight="800" fill="#5e4a1e" letter-spacing="2">OMAN</text>
     <text x="40" y="70" font-size="9.5" font-weight="700" fill="#cfe4f2" letter-spacing="2" font-style="italic">THE GULF</text>
     
-    <text x="128" y="80" font-size="8.5" font-weight="800" fill="#fff" letter-spacing="1">STRAIT OF HORMUZ</text>'''
-    for x, y in ((118, 56), (160, 46), (212, 56)):
+    <text x="112" y="78" font-size="8.5" font-weight="800" fill="#fff" letter-spacing="1">STRAIT OF HORMUZ</text><text x="172" y="100" font-size="7.5" font-weight="800" fill="#5e4a1e">KHASAB</text>'''
+    for x, y in ((172, 50), (198, 58)):
         b += (f'<g transform="translate({x} {y})"><path d="M-12 0 L12 0 L9 5 L-10 5Z" fill="#1d1d1d"/><rect x="5" y="-5" width="5" height="5" fill="#eee"/>'
               f'<path d="M-3 -1 l2 -9 l2 6 l3 -8 l1 9 l4 -4 l-2 6z" fill="#ffd36b"/><circle cx="0" cy="-3" r="9" fill="none" stroke="#ff5a2a" stroke-width="1.4" stroke-dasharray="2 2"/></g>')
-    b += '''<g transform="translate(276 54)"><path d="M-14 0 L14 0 M0 -4 L0 4 M-6 -10 L6 10 M6 -10 L-6 10" stroke="#111" stroke-width="0"/>
+    b += ('<g transform="translate(244 62)"><path d="M-12 0 L12 0 L9 5 L-10 5Z" fill="#1d1d1d" opacity=".75"/><rect x="5" y="-5" width="5" height="5" fill="#eee" opacity=".75"/>'
+          '<circle cx="0" cy="-2" r="9" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="2 2"/>'
+          '<text x="0" y="2" font-size="11" font-weight="900" fill="#fff" text-anchor="middle">?</text></g>')
+    b += '''<g transform="translate(302 24)"><path d="M-14 0 L14 0 M0 -4 L0 4 M-6 -10 L6 10 M6 -10 L-6 10" stroke="#111" stroke-width="0"/>
     <path d="M-12 -2 L10 -2 L14 0 L10 2 L-12 2Z" fill="#333"/><path d="M-2 -2 L-8 -12 L-4 -12 L4 -2Z M-2 2 L-8 12 L-4 12 L4 2Z" fill="#333"/>
     <path d="M-9 -9 L9 9 M9 -9 L-9 9" stroke="#ff3b3b" stroke-width="2.4"/></g>'''
-    b += _tag(240, 72, "MQ-9 · IRGC CLAIM", "#111", "#ffd36b", 8.5)
-    b += _tag(8, 30, "3 TANKERS HIT", "#b3122e", "#fff", 10.5)
+    b += _tag(204, 92, "3RD: “MINE”, IRAN SAYS", "#111", "#fff", 8.5)
+    b += _tag(236, 40, "MQ-9: IRGC CLAIM", "#111", "#ffd36b", 8)
+    b += _tag(8, 30, "2 HITS CONFIRMED · UKMTO", "#b3122e", "#fff", 10)
     b += _cap(w, h, "STRAIT OF HORMUZ · IRAN WAR")
     return svg(w, h, b)
 
@@ -169,11 +172,13 @@ def france(w=238, h=62):
 
 def gaza(w=238, h=62):
     b = '''<rect width="238" height="62" fill="#c9b48a"/><rect y="48" width="238" height="14" fill="#a8916a"/>
-    <g fill="#bba27a"><rect x="150" y="18" width="22" height="30"/><rect x="176" y="10" width="18" height="38"/><rect x="198" y="24" width="30" height="24"/></g>
-    <g transform="translate(20 22)"><rect x="0" y="4" width="50" height="22" fill="#eee"/><path d="M50 8 h14 l10 10 v8 h-24z" fill="#ddd"/><rect x="6" y="9" width="12" height="9" fill="#c9a25a"/><rect x="22" y="9" width="12" height="9" fill="#c9a25a"/>
-    <circle cx="12" cy="28" r="5" fill="#222"/><circle cx="60" cy="28" r="5" fill="#222"/></g>
-    <path d="M100 4 l3 10 l10 -5 l-6 9 l10 3 l-10 3 l5 9 l-10 -5 l-3 9 l-3 -9 l-9 5 l5 -9 l-10 -3 l10 -3 l-6 -9 l10 5z" fill="#ffd36b" stroke="#b3122e" stroke-width="1"/>'''
-    b += _tag(122, 6, "3 KILLED", "#b3122e", "#fff", 9.5)
+    <g fill="#bba27a"><rect x="182" y="18" width="20" height="30"/><rect x="206" y="10" width="28" height="38"/></g>
+    <g transform="translate(14 24)"><rect x="0" y="6" width="44" height="18" rx="2" fill="#e8e4dc"/><path d="M44 10 h12 l8 8 v6 h-20z" fill="#d6d1c7"/>
+    <circle cx="12" cy="26" r="5" fill="#222"/><circle cx="52" cy="26" r="5" fill="#222"/></g>
+    <path d="M70 6 l3 9 l9 -4 l-5 8 l9 3 l-9 3 l4 8 l-9 -4 l-3 9 l-3 -9 l-9 4 l4 -8 l-9 -3 l9 -3 l-5 -8 l9 4z" fill="#ffd36b" stroke="#b3122e" stroke-width="1"/>'''
+    b += _tag(96, 4, "3 KILLED · GAZA MoH", "#b3122e", "#fff", 9)
+    b += _tag(96, 22, "WITNESSES: FOOD AID", "#fff", "#111", 8.5)
+    b += _tag(96, 38, "ISRAEL: ISLAMIC JIHAD", "#111", "#fff", 8.5)
     return svg(w, h, b)
 
 
