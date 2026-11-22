@@ -82,7 +82,7 @@ CARDS = [
 BRIEFS = [
     ("heli", "EU", "FI", "Finland", "Russian helicopter breach suspected", "", 26.2, 60.4),
     ("blacksea", "EU", "RU", "Black Sea", "Russia hits a Ukraine ship", "claim", 31.5, 44.0),
-    ("front", "EU", "UA", "Ukraine", "Army logs 116 clashes in a day", "claim", 37.2, 48.3),
+    ("front", "EU", "UA", "Ukraine", "Army logs 116 clashes", "claim", 37.2, 48.3),
     ("kyiv", "EU", "GB", "Kyiv", "UK’s Streeting calls Putin a “killer”", "", 30.5, 50.4),
     ("ams", "EU", "NL", "Amsterdam", "UK PM meets Dutch PM Jetten", "", 4.9, 52.4),
     ("lisbon", "EU", "PT", "Lisbon", "Workers march for pay and housing", "", -9.1, 38.7),
