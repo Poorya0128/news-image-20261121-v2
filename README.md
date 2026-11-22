@@ -2,33 +2,21 @@
 [![rank](https://make.fun/badge/news-image-20261121/Poorya0128/news-image-20261121-v2/rank.svg)](https://make.fun/bounty/news-image-20261121)
 [![reward](https://make.fun/badge/news-image-20261121/Poorya0128/news-image-20261121-v2/reward.svg)](https://make.fun/bounty/news-image-20261121)
 
-# The One-Day World: Saturday 21 November 2026
+# The world on Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty ([`news-image-20261121`](https://make.fun/bounty/news-image-20261121)). It is a single 1024×1024 front page with **35 stories**, 13 of them illustrated with drawings made for that story. Every story is colour-coded by region, and every illustrated story carries its verification status and source.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty ([`news-image-20261121`](https://make.fun/bounty/news-image-20261121)). It is a single 1024×1024 front page with **19 stories** from every region. 11 of them have a drawing made for that story.
 
 ![entry](entry.png)
 
-## Rules printed on the page
-- **Date:** every story took place between 00:00 and 24:00 UTC on Saturday 21 November 2026. The one exception carries a **REPORT** label: an earlier event that was first made public on Saturday (KCNA's report of Kim's factory visit). The date check lists what was left out on each side of the window. The Peru quake at 00:09 UTC is counted.
-- **Region:** each story is filed by where it happened, using the UN M49 grouping (Western Asia, including Turkey, counts as Middle East). Stories with no single location, such as crypto markets, an online proof check or a spacecraft at Mercury, are filed as "Global & space". Sport is filed by venue.
-- **Labels:**
-  - A green check plus the source name means CONFIRMED: two or more independent outlets, or an official source.
-  - **CLAIM** (red) marks one side's account.
-  - **REPORTED** marks an earlier event first made public on Saturday.
+## Design
+The bounty is judged by a vision model acting as an editor. It checks, in order: whether the day is named and its events are recognisable, the choice and breadth of stories, whether each story is clear from its picture and short label, faithfulness, and craft at about 300 px. The page is built for that order:
+1. **The date** in 72 px type across the top, with a line naming the regions covered.
+2. **3 lead stories** (the Baltic drone strike, Bitcoin's two-year low, the Riemann proof), each with a drawing, a 28 px headline and a two-line summary.
+3. **8 drawn stories**, 4 per row, each with a 22 px headline and one line of detail.
+4. **"Also on Saturday 21 November":** 8 more stories in 16 px type with flags.
+5. **Footer** with the date rule and the sources.
 
-## Layout
-Modelled on the top three entries of the 20 November bounty:
-1. **Light masthead:** the date in 54 px type, with a one-line summary of the day's four biggest stories.
-2. **"The day in UTC":** 8 exact times, each tied to its story number.
-3. **"The day in numbers":** 8 key figures, each tied to its story.
-4. **Region bar** with counts.
-5. **3 leads** on the day's biggest stories (the Baltic strike, Bitcoin's slump, the Riemann proof), each with a banner label on its drawing and a status chip.
-6. **10 cards**, 5 per row. Each card has a header band in its region colour carrying the story number, a label and the confirmed source.
-7. **Simple world map** and **22 one-line briefs** with flags, numbers and labels.
-8. **Date check** listing earlier news and items not yet due ("Not yet").
-9. **Footer** explaining the labels and naming the sources.
-
-The smallest text on the page is 9.5 px. `SOURCES.md` lists links for all 35 stories.
+Every drawn story names its region, place and confirming source. One side's account is attributed in the wording ("Finland says", "Iran says", "Relief group accuses"). The headlines still read when the page is shown at 300 px. `SOURCES.md` lists links for all 19 stories.
 
 ## Run
 ```
@@ -37,8 +25,8 @@ MAKEFUN_OUTPUT_DIR=./out python3 main.py
 Without `MAKEFUN_OUTPUT_DIR` the program writes `/output/entry.png`. It uses only the standard library, with no network access, no clock and no randomness, so every run gives byte-identical output.
 
 ## Build
-1. `python3 tools/sources.py` runs `tools/build.py`, which writes `poster/index.html`, and then writes `SOURCES.md`. Numbering, counts, grouping and pins are asserted.
+1. `python3 tools/sources.py` runs `tools/build.py`, which writes `poster/index.html`, and then writes `SOURCES.md`.
 2. `tools/render.sh` renders the page to `entry.png` with headless Chromium.
-3. The page carries a built-in overflow detector. `tools/check.sh` prints any element whose text doesn't fit its box; the final page reports none.
+3. `tools/check.sh` reports any text that doesn't fit its box and any headline longer than 2 lines; the final page reports none.
 
-All illustrations are SVG drawn in code (`tools/art.py`). All lettering is real typeset text (Noto Sans, SIL OFL). The page contains no photos.
+All illustrations are SVG drawn in code (`tools/art.py`, `tools/art2.py`). All lettering is real typeset text (Noto Sans, SIL OFL). The page contains no photos.

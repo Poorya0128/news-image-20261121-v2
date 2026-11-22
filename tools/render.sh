@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Renders poster/index.html to entry.png (1024x1024) with headless Chromium.
-# Build-time only: the graded program (main.py / main.ts) just copies entry.png.
+# Build-time only: the graded program (main.py) just copies entry.png.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 CHROME="${CHROME:-/inner_container/opt/playwright/chromium_headless_shell-1232/chrome-headless-shell-linux64/chrome-headless-shell}"

@@ -157,6 +157,8 @@ def flag(code):
         "UA": '<rect width="18" height="6" fill="#0057b7"/><rect y="6" width="18" height="6" fill="#ffd700"/>',
         "GB": '<rect width="18" height="12" fill="#012169"/><path d="M0 0 L18 12 M18 0 L0 12" stroke="#fff" stroke-width="2.4"/><path d="M0 0 L18 12 M18 0 L0 12" stroke="#c8102e" stroke-width=".9"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="7.8" width="2.4" height="12" fill="#c8102e"/><rect y="4.8" width="18" height="2.4" fill="#c8102e"/>',
         "ENG": '<rect width="18" height="12" fill="#fff"/><rect x="7.5" width="3" height="12" fill="#ce1124"/><rect y="4.5" width="18" height="3" fill="#ce1124"/>',
+        "EU": '<rect width="18" height="12" fill="#003399"/>' + "".join(
+            f'<circle cx="{9 + 3.6 * math.cos(i * math.pi / 6):.2f}" cy="{6 + 3.6 * math.sin(i * math.pi / 6):.2f}" r=".6" fill="#ffcc00"/>' for i in range(12)),
         "UN": '<rect width="18" height="12" fill="#4b92db"/><circle cx="9" cy="6" r="3.6" fill="none" stroke="#fff" stroke-width="1.2"/>',
         "PT": '<rect width="7" height="12" fill="#046a38"/><rect x="7" width="11" height="12" fill="#da291c"/><circle cx="7" cy="6" r="2.4" fill="#ffe900"/>',
         "NL": '<rect width="18" height="4" fill="#ae1c28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468b"/>',

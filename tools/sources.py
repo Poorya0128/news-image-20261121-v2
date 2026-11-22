@@ -79,24 +79,20 @@ for k, n in sorted(B.N.items(), key=lambda kv: kv[1]):
         tag = " ✓ CONFIRMED"
     rows.append(f"| {n} | {title[k]}{tag} | {links} |")
 
-md = f"""# Sources: {B.TOTAL} stories, all from Saturday 21 November 2026 (UTC)
+md = f"""# Sources: {B.TOTAL} stories from Saturday 21 November 2026
 
-Numbers match the badges and map pins on the page. This file is generated from `tools/build.py` by `tools/sources.py`.
+Generated from `tools/build.py` by `tools/sources.py`. Stories 1-3 are the lead drawings, 4-{B.DRAWN} the drawn cards,
+and the rest the "Also on Saturday 21 November" strip.
 
 | # | Story | Sources |
 |---|-------|---------|
 """ + "\n".join(rows) + """
 
-**Date rule.** Every story took place on Saturday 21 November 2026 between 00:00 and 24:00 UTC. The one exception is marked REPORT: an event on 20 November that was first made public on 21 November (KCNA's report of Kim's factory visit).
-- Left out, before 00:00 UTC Saturday: Russian missiles landing in Poland, the Brazil supercell storm (03:00–03:40 local time on Friday), the UK–EU summit deal, Ruto's Busia speech, and the death of Phumzile Mlambo-Ngcuka (Friday).
-- Left out, after 24:00 UTC Saturday: the Las Vegas GP (started 04:00 UTC Sunday) and the Copa Sudamericana final (kicked off 22:30 UTC and ended after midnight).
-- Counted: the Peru M6.7 quake, at 00:09 UTC on Saturday (19:09 Friday local time, USGS).
+**Date rule.** Every story happened, or was first reported, on Saturday 21 November 2026.
+Events from Friday 20 November (for example Russian missiles landing in Poland and the UK–EU summit deal) were left out.
 
-**Region rule.** Each story is filed by where it happened (UN M49 grouping; Western Asia, including Turkey, is shown as "Middle East"). Stories with no single location (crypto markets, an online proof check, a spacecraft at Mercury) are "Global & space". Sport is filed by venue.
-
-**Label rule.** CLAIM = one side's word: a party to a conflict, or an unverified accusation, always attributed. ◆ = an official statement or official data.
-
-**Timeline times (UTC).** 00:09 Peru quake (USGS) · by 04:00 Geneva talks end (just before 05:00 Geneva time, Guardian) · 06:50 Finnish coast guard alerted to the Sparta II attack (08:50 local) · 09:42 Banda Sea quake (USGS) · 10:34 suspected helicopter breach (12:34 local, Finnish MoD) · 15:16 Bitcoin at $60,192 (Reuters) · 18:24 BepiColombo burn starts (ESA) · 20:00 Ukrainian General Staff count of 116 clashes (22:00 Kyiv time).
+**Wording rule.** One side's account is attributed in the text ("Finland says", "Iran says", "Relief group accuses").
+CONFIRMED = two or more independent outlets, or an official source.
 """
 open(os.path.join(B.ROOT, "SOURCES.md"), "w", encoding="utf-8").write(md)
 print("SOURCES.md rows:", len(rows))
