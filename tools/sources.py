@@ -58,15 +58,24 @@ LINKS = {
 
 title = {x["k"]: x["h"] for x in B.LEADS + B.CARDS}
 title.update({b[0]: f"{b[3]}: {b[4]}" for b in B.BRIEFS})
-title.update({s[0]: f"{s[2]}: {s[3]}" for s in B.SPORT})
-flags = {b[0]: b[6] for b in B.BRIEFS}
+flags = {b[0]: b[5] for b in B.BRIEFS}
 
+LINKS["robots"] = LINKS.get("geneva", ["https://abcnews.com/US/wireStory/nations-talks-ai-killer-robots-agree-talks-firm-138339624"])
+LINKS["ams"] = ["https://www.gov.uk/government/news/pm-meeting-with-prime-minister-jetten-of-the-netherlands-21-november-2026"]
+LINKS["lisbon"] = ["https://www.euronews.com/2026/11/21/thousands-take-to-streets-in-portugal-france-and-spain-over-rising-living-costs"]
+LINKS["icj"] = ["https://www.timesofisrael.com/liveblog_entry/france-calls-for-un-security-council-action-after-myanmar-rejects-icj-genocide-ruling/"]
+LINKS["ire"] = ["https://sports.yahoo.com/articles/south-africa-stumbles-nations-championship-190124713.html"]
+LINKS["pope"] = ["https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-meets-participants-in-the-international-space-forum.html"]
+LINKS["epl"] = ["https://global.espn.com/football/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal"]
 LINKS = {k: v for k, v in LINKS.items() if k in B.N}
 assert set(LINKS) == set(B.N), set(B.N) ^ set(LINKS)
 rows = []
 for k, n in sorted(B.N.items(), key=lambda kv: kv[1]):
     links = " · ".join(f"[{u.split('/')[2].replace('www.', '')}]({u})" for u in LINKS[k])
-    tag = {"claim": " **(CLAIM)**", "official": " ◆ official", "report": " **(REPORT: event on 20 Nov, first reported 21 Nov)**"}.get(flags.get(k, ""), "")
+    st = {x["k"]: x["st"][0] for x in B.LEADS + B.CARDS}
+    tag = {"claim": " **(CLAIM)**", "report": " **(REPORTED: event on 20 Nov, first made public 21 Nov)**"}.get(flags.get(k, ""), "")
+    if k in st:
+        tag = " ✓ CONFIRMED"
     rows.append(f"| {n} | {title[k]}{tag} | {links} |")
 
 md = f"""# Sources: {B.TOTAL} stories, all from Saturday 21 November 2026 (UTC)
