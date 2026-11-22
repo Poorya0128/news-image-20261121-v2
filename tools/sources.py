@@ -7,25 +7,20 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build as B  # noqa: E402  (also rebuilds poster/index.html)
 
 LINKS = {
-    "baltic": ["https://www.afp.com/en/russian-cargo-ship-catches-fire-after-ukrainian-strike-baltic", "https://www.straitstimes.com/world/europe/russia-says-cargo-vessel-struck-by-drones-finland-says-it-is-on-fire-in-its-waters", "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-november-21-2026/"],
+    "baltic": ["https://www.afp.com/en/russian-cargo-ship-catches-fire-after-ukrainian-strike-baltic", "https://www.straitstimes.com/world/europe/russia-says-cargo-vessel-struck-by-drones-finland-says-it-is-on-fire-in-its-waters", "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-november-21-2026/", "https://adaderana.lk/news/252094"],
     "hormuz": ["https://www.straitstimes.com/world/europe/tanker-hit-by-unknown-projectile-near-omans-khasab-ukmto-says", "https://www.jpost.com/middle-east/article-915628", "https://apnews.com/article/mideast-iran-gaza-israel-november-21-2026-29159a6f3365ff447c0ccbd1d7260f75"],
     "sinaloa": ["https://www.pbs.org/newshour/world/mexico-detains-top-cartel-boss-el-chapo-isidro-setting-off-a-burst-of-violence-in-sinaloa", "https://globalnews.ca/news/12161000/mexico-cartel-leader-captured/"],
     "kryvyi": ["https://ca.news.yahoo.com/ballistic-missile-attack-zelenskyys-hometown-105551537.html", "https://kyivindependent.com/russian-attacks-kill-at-least-2-injure-83-across-ukraine-as-strikes-devastate-kryvyi-rih/", "https://united24media.com/war-in-ukraine/russia-bombards-ukraine-overnight-killing-7-year-old-boy-and-paramedic-injuring-dozens-24584"],
     "cop": ["https://www.yahoo.com/news/science/articles/fight-over-fossil-fuels-leaves-073500434.html", "https://www.theguardian.com/environment/2026/nov/21/climate-talks-stall-countries-mull-showdown-saudi-arabia-over-fossil-fuels"],
-    "robots": ["https://abcnews.com/US/wireStory/nations-talks-ai-killer-robots-agree-talks-firm-138339624", "https://www.theguardian.com/technology/2026/nov/21/international-talks-control-ai-autonomous-weapons-collapse"],
     "bepi": ["https://apnews.com/article/mercury-bepicolombo-space-planet-esa-0c80bbf2039ed4f6ee4a34426b3594a0", "https://earthsky.org/space/bepicolombo-mission-mercury/"],
     "quake": ["https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucij/executive", "https://www.ibtimes.com.au/magnitude-6-8-banda-sea-earthquake-felt-darwin-1879081"],
-    "france": ["https://www.lemonde.fr/en/france/article/2026/11/21/french-protesters-rally-for-sixth-weekend-over-living-costs-public-services-inequality_6786265_7.html", "https://www.bloomberg.com/news/articles/2026-11-21/french-protests-draw-fewer-people-after-government-concessions"],
+    "france": ["https://www.lemonde.fr/en/france/article/2026/11/21/french-protesters-rally-for-sixth-weekend-over-living-costs-public-services-inequality_6786265_7.html", "https://www.bloomberg.com/news/articles/2026-11-21/french-protests-draw-fewer-people-after-government-concessions", "https://www.euronews.com/2026/11/21/thousands-take-to-streets-in-portugal-france-and-spain-over-rising-living-costs"],
     "gaza": ["https://uk.news.yahoo.com/israeli-strike-kills-three-vehicle-135323513.html", "https://www.aol.com/articles/israeli-strike-kills-three-vehicle-135323000.html"],
     "eu": ["https://www.yahoo.com/news/politics/articles/eu-mulls-tax-big-tech-060606649.html", "https://www.yahoo.com/news/politics/articles/germany-still-not-satisfied-costa-170339274.html"],
-    "heli": ["https://www.dw.com/en/russian-helicopter-suspected-of-violating-finnish-airspace/a-80010133"],
+    "heli": ["https://www.aerotime.aero/articles/russian-helicopter-finnish-airspace-sparta-ii-drone-strike", "https://www.dw.com/en/russian-helicopter-suspected-of-violating-finnish-airspace/a-80010133"],
     "blacksea": ["https://news.sky.com/story/ukraine-live-updates-satellite-images-show-new-russia-deployments-as-biden-and-putin-summit-mooted-12541713"],
     "kyiv": ["https://www.itv.com/news/2026-11-21/zelenskyy-says-putins-a-killer-as-trump-defends-calling-him-a-friend"],
-    "lisbon": ["https://www.euronews.com/2026/11/21/thousands-take-to-streets-in-portugal-france-and-spain-over-rising-living-costs"],
-    "ams": ["https://www.gov.uk/government/news/pm-meeting-with-prime-minister-jetten-of-the-netherlands-21-november-2026"],
-    "tories": ["https://www.independent.co.uk/news/business/andy-burnham-tories-european-union-brussels-government-b3089311.html"],
     "pope": ["https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-meets-participants-in-the-international-space-forum.html"],
-    "icj": ["https://www.timesofisrael.com/liveblog_entry/france-calls-for-un-security-council-action-after-myanmar-rejects-icj-genocide-ruling/"],
     "mq9": ["https://www.tasnimnews.ir/en/news/2026/11/21/3753905/irgc-downs-58th-us-mq-9-drone-over-strait-of-hormuz", "https://www.aljazeera.com/news/2026/11/21/irans-irgc-downs-us-drone-over-hormuz-as-efforts-to-end-war-remain-stalled"],
     "aoun": ["https://www.arabnews.com/middle-east/lebanons-president-aoun-demands-end-to-israeli-occupation-iranian-interference-3013406"],
     "unifil": ["https://www.aa.com.tr/en/middle-east/unifil-begins-handing-over-positions-in-southern-lebanon-to-lebanese-army/4133076"],
@@ -34,40 +29,44 @@ LINKS = {
     "houthi": ["https://understandingwar.org/research/middle-east/iran-update-november-21-2026/"],
     "fbi": ["https://www.yahoo.com/news/politics/articles/trump-downplays-fbi-data-breach-220234871.html", "https://www.axios.com/2026/11/21/trump-russia-fbi-hack"],
     "iran": ["https://www.cbsnews.com/live-updates/iran-war-trump-tehran-denies-chemical-weapons/"],
-    "halifax": ["https://abcnews.com/International/wireStory/taiwan-warns-canada-faces-china-risks-carney-cautioned-138346706", "https://ca.news.yahoo.com/no-change-top-canadian-officials-153807614.html"],
+    "halifax": ["https://abcnews.com/International/wireStory/taiwan-warns-canada-faces-china-risks-carney-cautioned-138346706"],
     "peru": ["https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucfm/technical", "https://abcnews.com/International/wireStory/magnitude-67-earthquake-shakes-perus-andes-damage-casualties-138334341"],
     "bd": ["https://www.khaleejtimes.com/world/asia/bangladesh-deploys-extra-paramilitary-troops-political-unrest"],
     "kr": ["https://www.koreaherald.com/article/10944666"],
     "tw": ["https://www.taiwannews.com.tw/en/news/6479444"],
     "nk": ["https://www.channelnewsasia.com/east-asia/north-korea-kim-jong-un-donald-trump-snub-6571201"],
-    "au": ["https://www.abc.net.au/news/2026-11-21/homebirth-rallies-midwife-insurance-freebirth/107412380"],
-    "in": ["https://www.thehindu.com/news/national/pm-modi-iit-kharagpur-bengal-updates-november-21-2026/article71727603.ece"],
-    "eg": ["https://dailynewsegypt.com/2026/11/21/al-sisi-calls-for-global-financial-system-reform-greater-african-role-in-shaping-world-order/"],
-    "sudan": ["https://www.radiotamazuj.org/en/news/article/sennar-imposes-night-curfew-as-blue-nile-fighting-intensifies", "https://www.usmuslims.com/sudanese-relief-group-accuses-rsf-of-killing-civilians-including-3-children-in-383026h.htm"],
+    "in": ["https://www.theweek.in/wire-updates/business/2026/11/21/google-announces-usd-5-mn-funding-for-iit-kharagpur-for-advanced-ai-research.html", "https://timesofindia.indiatimes.com/india/google-commits-5-million-to-iit-kharagpur-for-ai-research-talent-development/articleshow/136053247.cms"],
+    "eg": ["https://dailynewsegypt.com/2026/11/21/al-sisi-calls-for-global-financial-system-reform-greater-african-role-in-shaping-world-order/", "https://dailynewsegypt.com/2026/11/21/egypt-signs-cooperation-pacts-with-sudan-dr-congo-at-aswan-forum/"],
+    "sudan": ["https://www.radiotamazuj.org/en/news/article/sennar-imposes-night-curfew-as-blue-nile-fighting-intensifies", "https://www.aa.com.tr/en/africa/sudanese-relief-group-accuses-rsf-of-killing-civilians-including-3-children-in-west-kordofan/4133027"],
     "ng": ["https://www.premiumtimesng.com/regional/ssouth-west/927036-tinubu-campaigns-in-ibadan-says-nigeria-on-path-to-prosperity.html", "https://leadership.ng/bayelsa-boat-tragedy-tinubu-orders-low-key-ibadan-rally/"],
-    "za": ["https://uk.news.yahoo.com/ex-african-deputy-president-un-080146042.html"],
     "eng": ["https://www.skysports.com/rugby-union/news/13614346/nations-championship-england-37-12-new-zealand-most-complete-performance-under-steve-borthwick-sees-hosts-stay-in-title-hunt"],
-    "ire": ["https://sports.yahoo.com/articles/south-africa-stumbles-nations-championship-190124713.html"],
-    "sco": ["https://ca.sports.yahoo.com/news/australia-breaks-win-over-wales-224803005.html"],
-    "wal": ["https://www.skysports.com/rugby-union/news/13615075/nations-championship-wales-fall-short-in-29-26-defeat-to-australia-after-epic-new-zealand-victory"],
     "epl": ["https://global.espn.com/football/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal"],
-    "new": ["https://global.espn.com/football/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal"],
     "cric": ["https://www.afp.com/en/india-take-118-run-lead-over-new-zealand-reach-486-4-stumps-day-3"],
     "t20": ["https://www.espn.co.uk/cricket/series/24273/game/1528706/australia-vs-england-1st-t20i-24273"],
     "cfb": ["https://www.nbcsports.com/college-football/news/nebraska-ends-31-game-losing-streak-against-ap-top-25-opponents-with-31-28-win-over-no-16-buckeyes"],
-    "ufc": ["https://www.fightbookmma.com/ufc-doha-2026-results/"],
+    "ufc": ["https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling", "https://www.espn.com/mma/fightcenter"],
+    "geneva": ["https://abcnews.com/US/wireStory/nations-talks-ai-killer-robots-agree-talks-firm-138339624", "https://www.theguardian.com/technology/2026/nov/21/international-talks-control-ai-autonomous-weapons-collapse"],
+    "front": ["https://en.lb.ua/news/2026/11/21/50906_116_clashes_reported_front_line.html", "https://www.kyivpost.com/post/90823"],
+    "btc": ["https://www.globalbankingandfinance.com/bitcoin-rises-over-2-60-000/", "https://finance.yahoo.com/markets/crypto/articles/bitcoin-crashes-below-56-000-061626263.html"],
+    "riemann": ["https://www.theguardian.com/technology/2026/nov/21/anthropic-riemann-hypothesis-solved-claude-ai", "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"],
+    "brazil": ["https://www.riotimesonline.com/lula-calls-brazil-fiscal-bill-an-adjustment/"],
+    "flu": ["https://theprint.in/india/bird-flu-outbreak-alert-central-team-visits-cuddalore/3105023/"],
+    "mama": ["https://www.koreaherald.com/article/10944819", "https://www.asiaone.com/entertainment/bts-reign-supreme-2026-mamas-cortis-steal-spotlight-song-year-win"],
+    "oyo": ["https://www.kenyans.co.ke/news/129580-ruto-jets-out-congo-meeting-amid-tensions-between-kenya-and-drc"],
+    "somalia": ["https://garoweonline.com/index.php/en/news/somalia/turkish-military-chief-visits-somalia-amid-deepening-defence-ties"],
 }
 
 title = {x["k"]: x["h"] for x in B.LEADS + B.CARDS}
-title.update({b[0]: f"{b[2]}: {b[3]}" for b in B.BRIEFS})
+title.update({b[0]: f"{b[3]}: {b[4]}" for b in B.BRIEFS})
 title.update({s[0]: f"{s[2]}: {s[3]}" for s in B.SPORT})
-flags = {b[0]: b[5] for b in B.BRIEFS}
+flags = {b[0]: b[6] for b in B.BRIEFS}
 
+LINKS = {k: v for k, v in LINKS.items() if k in B.N}
 assert set(LINKS) == set(B.N), set(B.N) ^ set(LINKS)
 rows = []
 for k, n in sorted(B.N.items(), key=lambda kv: kv[1]):
     links = " · ".join(f"[{u.split('/')[2].replace('www.', '')}]({u})" for u in LINKS[k])
-    tag = " **(claim)**" if flags.get(k) == "claim" else (" ◆ official" if flags.get(k) == "official" else "")
+    tag = {"claim": " **(CLAIM)**", "official": " ◆ official", "report": " **(REPORT: event on 20 Nov, first reported 21 Nov)**"}.get(flags.get(k, ""), "")
     rows.append(f"| {n} | {title[k]}{tag} | {links} |")
 
 md = f"""# Sources: {B.TOTAL} stories, all from Saturday 21 November 2026 (UTC)
@@ -78,14 +77,16 @@ Numbers match the badges and map pins on the page. This file is generated from `
 |---|-------|---------|
 """ + "\n".join(rows) + """
 
-**Date check (UTC day = Saturday 21 Nov 00:00–24:00 UTC).**
-- Left out, before 00:00 UTC Saturday: Russian missiles landing in Poland, the Brazil supercell storm (03:00–03:40 local Friday), the UK–EU summit deal, and Ruto's Busia speech.
-- Left out, after 24:00 UTC Saturday: the Las Vegas GP (started 04:00 UTC Sunday) and the Copa Sudamericana final (kicked off 22:30 UTC, ended after midnight).
-- Counted: the Peru M6.7 quake, at 00:09 UTC Saturday (19:09 Friday local time, USGS).
+**Date rule.** Every story took place on Saturday 21 November 2026 between 00:00 and 24:00 UTC. The one exception is marked REPORT: an event on 20 November that was first made public on 21 November (KCNA's report of Kim's factory visit).
+- Left out, before 00:00 UTC Saturday: Russian missiles landing in Poland, the Brazil supercell storm (03:00–03:40 local time on Friday), the UK–EU summit deal, Ruto's Busia speech, and the death of Phumzile Mlambo-Ngcuka (Friday).
+- Left out, after 24:00 UTC Saturday: the Las Vegas GP (started 04:00 UTC Sunday) and the Copa Sudamericana final (kicked off 22:30 UTC and ended after midnight).
+- Counted: the Peru M6.7 quake, at 00:09 UTC on Saturday (19:09 Friday local time, USGS).
 
-**Region rule:** each story is filed by where it happened (UN M49 grouping; Western Asia, including Turkey, is shown as "Middle East"). Sport is filed by venue.
+**Region rule.** Each story is filed by where it happened (UN M49 grouping; Western Asia, including Turkey, is shown as "Middle East"). Stories with no single location (crypto markets, an online proof check, a spacecraft at Mercury) are "Global & space". Sport is filed by venue.
 
-**Key UTC times:** Geneva talks ended just before 05:00 Geneva time (~04:00 UTC, Guardian); the Banda Sea quake struck at 09:42 UTC (USGS); the Russian helicopter was reported at 12:34 Finnish time (10:34 UTC); BepiColombo's 37-minute orbit burn began at 18:24 UTC (ESA via EarthSky).
+**Label rule.** CLAIM = one side's word: a party to a conflict, or an unverified accusation, always attributed. ◆ = an official statement or official data.
+
+**Timeline times (UTC).** 00:09 Peru quake (USGS) · by 04:00 Geneva talks end (just before 05:00 Geneva time, Guardian) · 06:50 Finnish coast guard alerted to the Sparta II attack (08:50 local) · 09:42 Banda Sea quake (USGS) · 10:34 suspected helicopter breach (12:34 local, Finnish MoD) · 15:16 Bitcoin at $60,192 (Reuters) · 18:24 BepiColombo burn starts (ESA) · 20:00 Ukrainian General Staff count of 116 clashes (22:00 Kyiv time).
 """
 open(os.path.join(B.ROOT, "SOURCES.md"), "w", encoding="utf-8").write(md)
 print("SOURCES.md rows:", len(rows))
