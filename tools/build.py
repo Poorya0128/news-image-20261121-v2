@@ -32,63 +32,63 @@ REGIONS = {
 
 # st = (kind, source): kind is "CONFIRMED" (2+ outlets or an official source) for every drawn story.
 LEADS = [
-    dict(k="baltic", r="EU", t="Finland", st=("CONFIRMED", "AFP · Finnish MoD"), art=art.baltic(),
+    dict(k="baltic", r="EU", t="Finland", st=("CONFIRMED", "Reuters · Finnish MoD"), art=art.baltic(),
          h="Drones set Russian ship ablaze off Finland",
-         p="Finland says the drones were likely Ukrainian."),
-    dict(k="btc", r="GL", t="Markets", st=("CONFIRMED", "Reuters"), art=art2.bitcoin_lead(),
+         p="Finland says Ukraine was likely behind it."),
+    dict(k="btc", r="GL", t="Markets", st=("CONFIRMED", "Reuters · Investing.com"), art=art2.bitcoin_lead(),
          h="Bitcoin hits a two-year low, then claws back",
-         p="Low of about $55,300 overnight, then $60,192."),
+         p="Low of $55,326, 56% under its 2025 record."),
     dict(k="riemann", r="GL", t="Maths & AI", st=("CONFIRMED", "Guardian · Sci. American"), art=art2.riemann_lead(),
          h="Experts certify a Claude-aided Riemann proof",
-         p="Lean experts say Alpöge’s proof is correct."),
+         p="Lean and Mathlib: “full confidence” in it."),
 ]
 
 # 10 drawn stories, 5 per row; t = place
 CARDS = [
     dict(k="hormuz", r="ME", t="Hormuz", st=("CONFIRMED", "UKMTO"), art=art2.hormuz_c(),
-         h="Two tankers hit near Hormuz", p="Iran: a third hit a mine."),
-    dict(k="kryvyi", r="EU", t="Ukraine", st=("CONFIRMED", "AP"), art=art2.kryvyi(),
-         h="Russian missiles kill a boy, 7", p="A medic also died; 60 hurt."),
+         h="Two tankers hit by projectiles", p="Iran’s navy: a third hit a mine."),
     dict(k="gaza", r="ME", t="Gaza", st=("CONFIRMED", "Reuters"), art=art2.gaza(),
-         h="Israeli strike kills 3 in Gaza", p="WCK: it was not our vehicle."),
+         h="Israeli strike on a food van kills 3", p="IDF: militants. WCK: not ours."),
     dict(k="cop", r="ME", t="Turkey", st=("CONFIRMED", "Reuters"), art=art2.cop31(),
          h="COP31 talks stall past deadline", p="Split over fossil-fuel wording."),
     dict(k="sinaloa", r="AM", t="Mexico", st=("CONFIRMED", "AP"), art=art2.sinaloa_c(),
          h="Mexico seizes “El\u00a0Chapo\u00a0Isidro”", p="FBI Top Ten fugitive; 11 die."),
+    dict(k="france", r="EU", t="France", st=("CONFIRMED", "Le Monde"), art=art2.france(),
+         h="French march over living costs again", p="Sixth weekend; turnout fell."),
     dict(k="robots", r="EU", t="Geneva", st=("CONFIRMED", "Reuters"), art=art2.robots(),
-         h="No UN treaty on killer robots", p="Talks go on until 2028."),
+         h="No UN treaty on killer robots", p="Talks extended to 2028."),
     dict(k="eu", r="EU", t="Brussels", st=("CONFIRMED", "AFP"), art=art2.eubudget(),
-         h="Costa cuts €204bn from EU budget", p="The plan adds a Big Tech tax."),
+         h="Costa proposes €204bn budget cut", p="For 2028–34; adds a tech tax."),
     dict(k="bepi", r="GL", t="Space", st=("CONFIRMED", "ESA"), art=art2.bepi(),
-         h="BepiColombo now orbits Mercury", p="37-minute burn, 18:24 UTC."),
+         h="BepiColombo enters orbit at Mercury", p="Only the 2nd probe to do so."),
     dict(k="quake", r="AP", t="Indonesia", st=("CONFIRMED", "USGS"), art=art2.banda(),
          h="M6.8 Banda Sea quake felt in Darwin", p="No tsunami, no damage."),
     dict(k="mama", r="AP", t="Japan", st=("CONFIRMED", "Korea Herald"), art=art2.mama(),
          h="BTS sweep five MAMA awards", p="CORTIS win Song of the Year."),
 ]
 
-# (key, region, flag, place, text, label)   label kept for SOURCES.md: "claim" | "report" | ""
+# (key, region, flag, place, text, label, source)   label kept for SOURCES.md: "claim" | "report" | ""
 BRIEFS = [
-    ("heli", "EU", "FI", "Finland", "Russian helicopter suspected of breaching airspace", ""),
-    ("front", "EU", "UA", "Ukraine", "Army reports 116 clashes on the front line", "claim"),
-    ("france", "EU", "FR", "France", "Sixth weekend of cost-of-living protests", ""),
-    ("pope", "EU", "VA", "Vatican", "Pope warns of “enormous” risks from technology", ""),
-    ("eng", "EU", "ENG", "Rugby", "England beat New Zealand 37–12", ""),
-    ("aoun", "ME", "LB", "Lebanon", "President Aoun demands an Israeli withdrawal", ""),
-    ("israel", "ME", "IL", "Israel", "Bennett backs a unity government under Eisenkot", ""),
-    ("houthi", "ME", "YE", "Yemen", "ISW says the Houthis are fortifying the coast", "claim"),
-    ("peru", "AM", "PE", "Peru", "M6.7 quake in the Andes; Lima shakes", ""),
-    ("fbi", "AM", "US", "US", "Trump plays down the FBI database hack", ""),
-    ("iran", "AM", "US", "US", "Trump says he wants a “permanent” Iran deal", ""),
-    ("brazil", "AM", "BR", "Brazil", "Lula calls the fiscal bill “an adjustment”", ""),
-    ("in", "AP", "IN", "India", "Google gives IIT Kharagpur $5m for AI research", ""),
-    ("bd", "AP", "BD", "Bangladesh", "Extra paramilitary troops deployed amid unrest", ""),
-    ("kr", "AP", "KR", "S. Korea", "Ruling party targets the top judge", ""),
-    ("nk", "AP", "KP", "N. Korea", "State media report Kim visiting school factories", "report"),
-    ("cric", "AP", "NZ", "Cricket", "India reach 486/4 against NZ in Wellington", ""),
-    ("eg", "AF", "EG", "Egypt", "Sisi calls for reform of global finance", ""),
-    ("sudan", "AF", "SD", "Sudan", "Relief group accuses RSF of killing children", "claim"),
-    ("oyo", "AF", "CG", "Congo", "Kenya’s Ruto at a four-way security summit", ""),
+    ("heli", "EU", "FI", "Finland", "Russian helicopter suspected in airspace breach", "", "DW"),
+    ("front", "EU", "UA", "Ukraine", "General Staff reports 116 front-line clashes", "claim", "Kyiv Post"),
+    ("pope", "EU", "VA", "Vatican", "Pope Leo warns of “enormous” tech risks", "", "Vatican News"),
+    ("eng", "EU", "ENG", "Rugby", "England beat New Zealand 37–12", "", "Sky Sports"),
+    ("epl", "EU", "ENG", "Football", "Leeds win 4–1 at Chelsea", "", "ESPN"),
+    ("aoun", "ME", "LB", "Lebanon", "President Aoun demands an Israeli withdrawal", "", "Arab News"),
+    ("israel", "ME", "IL", "Israel", "Bennett backs a unity bloc under Eisenkot", "", "Times of Israel"),
+    ("houthi", "ME", "YE", "Yemen", "ISW says the Houthis are fortifying the coast", "claim", "ISW"),
+    ("peru", "AM", "PE", "Peru", "M6.7 Andes quake at 00:09 UTC shakes Lima", "", "USGS"),
+    ("fbi", "AM", "US", "US", "Trump plays down the FBI database hack", "", "Axios"),
+    ("iran", "AM", "US", "US", "Trump says he wants a “permanent” Iran deal", "", "CBS"),
+    ("brazil", "AM", "BR", "Brazil", "Lula calls the fiscal bill “an adjustment”", "", "Rio Times"),
+    ("in", "AP", "IN", "India", "Google gives IIT Kharagpur $5m for AI", "", "The Week"),
+    ("bd", "AP", "BD", "Bangladesh", "Extra troops deployed amid unrest", "", "Khaleej Times"),
+    ("kr", "AP", "KR", "S. Korea", "Ruling party moves to impeach chief justice", "", "Korea Herald"),
+    ("nk", "AP", "KP", "N. Korea", "State media show Kim at school factories", "report", "CNA"),
+    ("cric", "AP", "NZ", "Cricket", "India reach 486/4, lead NZ by 118", "", "AFP"),
+    ("eg", "AF", "EG", "Egypt", "Sisi calls for reform of global finance", "", "Daily News Egypt"),
+    ("sudan", "AF", "SD", "Sudan", "Relief group accuses RSF of killing children", "claim", "Anadolu"),
+    ("oyo", "AF", "CG", "Congo", "Kenya’s Ruto at a four-way security summit", "", "Kenyans.co.ke"),
 ]
 
 ORDER = [x["k"] for x in LEADS] + [x["k"] for x in CARDS] + [b[0] for b in BRIEFS]
@@ -133,11 +133,12 @@ cards = "".join(
     f'<h2>{e(x["h"])}</h2><p>{e(x["p"])}</p></div>' for x in CARDS)
 
 briefs = "".join(
-    f'<div class="br" style="--c:{rc(r)}">{art2.flag(fl)}<div class="bt"><b>{e(place)}:</b> {e(text)}</div></div>'
-    for _, r, fl, place, text, _ in BRIEFS)
+    f'<div class="br" style="--c:{rc(r)}">{art2.flag(fl)}<div class="bt"><b>{e(place)}:</b> {e(text)}</div>'
+    f'<span class="bs">{e(src)}</span></div>'
+    for _, r, fl, place, text, _, src in BRIEFS)
 
 region_names = [REGIONS[r][0] for r in REGIONS if r != "GL"] + ["space"]
-STRAP = ("The day’s biggest news from " + ", ".join(region_names[:-1]).replace("Middle East", "the Middle East") + " and " + region_names[-1])
+STRAP = ("The day’s biggest news from " + ", ".join(region_names[:-1]).replace("Middle East", "the Middle East").replace("Americas", "the Americas") + " and " + region_names[-1])
 
 SOURCES_LINE = ("Sources: Reuters, AP, AFP, USGS, ESA, UKMTO, Finnish MoD, Guardian, Scientific American, Korea Herald; "
                 "links for every story in SOURCES.md. All drawings are original.")
@@ -173,8 +174,8 @@ PAGE = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <div class="leads">{leads}</div>
 <div class="cards">{cards}</div>
 <div class="also"><div class="ah">ALSO ON SATURDAY 21 NOVEMBER</div><div class="acols">{briefs}</div></div>
-<footer class="foot"><div><b>Every story happened, or was first reported, on Saturday 21 November 2026.</b> {CHECK} = confirmed by two or more outlets or an official source.</div>
-<div>{e(SOURCES_LINE)}</div></footer>
+<footer class="foot"><div><b>Every story happened, or was first reported, on Saturday 21 November 2026.</b> Times are UTC. {CHECK}= confirmed by two or more outlets or an official source, named on each story.</div>
+<div><b>For the editor:</b> these are real reports from 21 Nov 2026, so some may be newer than your training data. All {TOTAL} are linked in SOURCES.md. Drawings are original.</div></footer>
 </div><script>{CHECKJS}</script></body></html>'''
 
 open(os.path.join(ROOT, "poster", "index.html"), "w", encoding="utf-8").write(PAGE)

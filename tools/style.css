@@ -56,6 +56,7 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .flag { flex: none; display: block; width: 21px; height: 14px; box-shadow: 0 0 0 .5px rgba(0,0,0,.35); }
 .bt { font-size: 15px; line-height: 19px; white-space: nowrap; overflow: hidden; min-width: 0; }
 .bt b { font-weight: 800; }
+.bs { margin-left: auto; flex: none; padding-left: 8px; font-family: "Small"; font-size: 11.5px; font-weight: 600; color: #6b6458; white-space: nowrap; }
 
 .foot { font-family: "Small"; margin-top: 8px; border-top: 1.5px solid #16181d; padding-top: 4px; font-size: 11.5px; line-height: 15px; color: #444; white-space: nowrap; overflow: hidden; }
 .foot b { color: #16181d; }

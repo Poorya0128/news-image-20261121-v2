@@ -74,7 +74,7 @@ def bepi():
     b += '<circle cx="36" cy="30" r="20" fill="#9b948c"/><circle cx="29" cy="23" r="4" fill="#7c766f"/><circle cx="43" cy="37" r="5" fill="#7c766f"/>'
     b += '<ellipse cx="36" cy="30" rx="32" ry="9" fill="none" stroke="#f2c94c" stroke-width="1.3" stroke-dasharray="3 2" transform="rotate(-16 36 30)"/>'
     b += '<g transform="translate(78 14) rotate(-16)"><rect x="-4" y="-4" width="8" height="8" fill="#e6e6e6"/><rect x="-18" y="-2.5" width="13" height="5" fill="#3d6fd6"/><rect x="5" y="-2.5" width="13" height="5" fill="#3d6fd6"/></g>'
-    b += tag(156, 30, "18:24 UTC", "#f2c94c", "#111", 9, "end")
+    b += tag(156, 30, "IN ORBIT", "#f2c94c", "#111", 9, "end")
     return svg(b)
 
 
@@ -223,15 +223,16 @@ def lead_svg(body):
 
 
 def bitcoin_lead():
-    pts = [(20, 30), (50, 34), (80, 44), (110, 62), (140, 84), (162, 98), (176, 90), (200, 74), (232, 62), (266, 54), (300, 50)]
+    pts = [(20, 44), (38, 70), (58, 98), (78, 82), (110, 70), (150, 62), (190, 58), (230, 55), (266, 52), (300, 50)]
     b = '<rect width="328" height="132" fill="#12161d"/>'
     for y in (30, 56, 82, 108):
         b += f'<line x1="14" y1="{y}" x2="314" y2="{y}" stroke="#262c38"/>'
     b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in pts) + ' L300 116 L20 116Z" fill="#f7931a" opacity=".12"/>'
     b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in pts) + '" stroke="#f7931a" stroke-width="3" fill="none" stroke-linejoin="round"/>'
-    b += '<circle cx="162" cy="98" r="4.5" fill="#fff"/><circle cx="300" cy="50" r="4.5" fill="#fff"/>'
-    b += tag(172, 98, "LOW ~$55,300", "#fff", "#111", 9.5)
-    b += tag(6, 100, "LOWEST SINCE SEPT 2024", "#f7931a", "#111", 9)
+    # the low came early on Saturday (Investing.com, about 03:30 UTC), so it sits near the left of the 00:00-15:16 axis
+    b += '<circle cx="58" cy="98" r="4.5" fill="#fff"/><circle cx="300" cy="50" r="4.5" fill="#fff"/>'
+    b += tag(70, 94, "LOW $55,326", "#fff", "#111", 9.5)
+    b += tag(158, 94, "LOWEST SINCE SEPT 2024", "#f7931a", "#111", 9)
     b += tag(314, 14, "$60,192 AT 15:16 UTC", "#f7931a", "#111", 10, "end")
     b += '<text x="20" y="128" font-size="9.5" font-weight="700" fill="#8a93a6">SAT 00:00 UTC</text><text x="314" y="128" font-size="9.5" font-weight="700" fill="#8a93a6" text-anchor="end">15:16</text>'
     return lead_svg(b)
