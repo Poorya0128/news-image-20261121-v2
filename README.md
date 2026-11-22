@@ -4,19 +4,19 @@
 
 # The world on Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty ([`news-image-20261121`](https://make.fun/bounty/news-image-20261121)). It is a single 1024×1024 front page with **19 stories** from every region. 11 of them have a drawing made for that story.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty ([`news-image-20261121`](https://make.fun/bounty/news-image-20261121)). It is a single 1024×1024 front page with **33 stories** from all six regions. 13 of them have a drawing made for that story.
 
 ![entry](entry.png)
 
 ## Design
 The bounty is judged by a vision model acting as an editor. It checks, in order: whether the day is named and its events are recognisable, the choice and breadth of stories, whether each story is clear from its picture and short label, faithfulness, and craft at about 300 px. The page is built for that order:
-1. **The date** in 72 px type across the top, with a line naming the regions covered.
-2. **3 lead stories** (the Baltic drone strike, Bitcoin's two-year low, the Riemann proof), each with a drawing, a 28 px headline and a two-line summary.
-3. **8 drawn stories**, 4 per row, each with a 22 px headline and one line of detail.
-4. **"Also on Saturday 21 November":** 8 more stories in 16 px type with flags.
+1. **The date** in 68 px type across the top, with a line naming the regions covered.
+2. **3 lead stories** (the Baltic drone strike, Bitcoin's two-year low, the Riemann proof), each with a drawing, a 27 px headline and a one-line summary.
+3. **10 drawn stories**, 5 per row, each with a 20 px headline and one line of detail.
+4. **"Also on Saturday 21 November":** 20 more stories in 15 px type, with flags and region colours.
 5. **Footer** with the date rule and the sources.
 
-Every drawn story names its region, place and confirming source. One side's account is attributed in the wording ("Finland says", "Iran says", "Relief group accuses"). The headlines still read when the page is shown at 300 px. `SOURCES.md` lists links for all 19 stories.
+Every drawn story names its region, place and confirming source. One side's account is attributed in the wording ("Finland says", "Iran says", "Relief group accuses"). The headlines still read when the page is shown at 300 px. `SOURCES.md` lists links for all 33 stories.
 
 ## Run
 ```

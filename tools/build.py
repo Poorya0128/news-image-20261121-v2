@@ -5,8 +5,8 @@ Design goal (from the bounty rules): an AI editor compares two images, first on
 whether the day is named and its events are recognisable, then on choice and
 breadth, then on whether each story is clear from its picture and short label,
 then faithfulness, then craft at about 300 px. So the page names the date in
-huge type, shows 11 of the day's biggest stories as large drawings with
-short headlines, covers every region, and lists 8 more in a readable strip.
+huge type, shows 13 of the day's biggest stories as large drawings with
+short headlines, covers every region, and lists 20 more in a readable strip.
 
 Render with tools/render.sh; tools/check.sh reports any text that does not fit.
 """
@@ -34,44 +34,61 @@ REGIONS = {
 LEADS = [
     dict(k="baltic", r="EU", t="Finland", st=("CONFIRMED", "AFP · Finnish MoD"), art=art.baltic(),
          h="Drones set Russian ship ablaze off Finland",
-         p="Finland says the drones were likely Ukrainian. All 16 crew of the Sparta II were evacuated."),
+         p="Finland says the drones were likely Ukrainian."),
     dict(k="btc", r="GL", t="Markets", st=("CONFIRMED", "Reuters"), art=art2.bitcoin_lead(),
          h="Bitcoin hits a two-year low, then claws back",
-         p="It fell to about $55,300 overnight, the lowest since September 2024, then rose to $60,192."),
+         p="Low of about $55,300 overnight, then $60,192."),
     dict(k="riemann", r="GL", t="Maths & AI", st=("CONFIRMED", "Guardian · Sci. American"), art=art2.riemann_lead(),
          h="Experts certify a Claude-aided Riemann proof",
-         p="Lean checkers say Levent Alpöge’s machine-checked proof of the 1859 problem is correct."),
+         p="Lean experts say Alpöge’s proof is correct."),
 ]
 
+# 10 drawn stories, 5 per row; t = place
 CARDS = [
     dict(k="hormuz", r="ME", t="Hormuz", st=("CONFIRMED", "UKMTO"), art=art2.hormuz_c(),
-         h="Two tankers hit by projectiles near Hormuz", p="Iran says a third ship hit a mine."),
+         h="Two tankers hit near Hormuz", p="Iran: a third hit a mine."),
     dict(k="kryvyi", r="EU", t="Ukraine", st=("CONFIRMED", "AP"), art=art2.kryvyi(),
-         h="Russian missiles kill a boy, 7, and a medic", p="60 hurt in Kryvyi Rih, AP says."),
+         h="Russian missiles kill a boy, 7", p="A medic also died; 60 hurt."),
     dict(k="gaza", r="ME", t="Gaza", st=("CONFIRMED", "Reuters"), art=art2.gaza(),
-         h="Israeli strike on a vehicle kills 3 in Gaza", p="WCK says it was not its vehicle."),
+         h="Israeli strike kills 3 in Gaza", p="WCK: it was not our vehicle."),
     dict(k="cop", r="ME", t="Turkey", st=("CONFIRMED", "Reuters"), art=art2.cop31(),
-         h="COP31 climate talks stall past the deadline", p="Fossil-fuel wording splits Antalya."),
+         h="COP31 talks stall past deadline", p="Split over fossil-fuel wording."),
     dict(k="sinaloa", r="AM", t="Mexico", st=("CONFIRMED", "AP"), art=art2.sinaloa_c(),
-         h="Mexico captures “El Chapo Isidro”; 11 die", p="FBI Top Ten fugitive seized."),
-    dict(k="quake", r="AP", t="Indonesia", st=("CONFIRMED", "USGS"), art=art2.banda(),
-         h="Deep M6.8 Banda Sea quake felt in Darwin", p="No tsunami, no damage reported."),
+         h="Mexico seizes “El\u00a0Chapo\u00a0Isidro”", p="FBI Top Ten fugitive; 11 die."),
+    dict(k="robots", r="EU", t="Geneva", st=("CONFIRMED", "Reuters"), art=art2.robots(),
+         h="No UN treaty on killer robots", p="Talks go on until 2028."),
+    dict(k="eu", r="EU", t="Brussels", st=("CONFIRMED", "AFP"), art=art2.eubudget(),
+         h="Costa cuts €204bn from EU budget", p="The plan adds a Big Tech tax."),
     dict(k="bepi", r="GL", t="Space", st=("CONFIRMED", "ESA"), art=art2.bepi(),
-         h="BepiColombo enters orbit around Mercury", p="A 37-minute burn at 18:24 UTC."),
+         h="BepiColombo now orbits Mercury", p="37-minute burn, 18:24 UTC."),
+    dict(k="quake", r="AP", t="Indonesia", st=("CONFIRMED", "USGS"), art=art2.banda(),
+         h="M6.8 Banda Sea quake felt in Darwin", p="No tsunami, no damage."),
     dict(k="mama", r="AP", t="Japan", st=("CONFIRMED", "Korea Herald"), art=art2.mama(),
-         h="BTS sweep five MAMA awards in Osaka", p="CORTIS take Song of the Year."),
+         h="BTS sweep five MAMA awards", p="CORTIS win Song of the Year."),
 ]
 
-# (key, region, flag, place, text, label)   label kept for SOURCES.md: "claim" | ""
+# (key, region, flag, place, text, label)   label kept for SOURCES.md: "claim" | "report" | ""
 BRIEFS = [
-    ("eng", "EU", "ENG", "Rugby", "England beat New Zealand 37–12", ""),
-    ("robots", "EU", "UN", "Geneva", "UN killer-robot talks end with no treaty", ""),
-    ("eu", "EU", "EU", "EU", "Costa cuts €204bn from the budget plan", ""),
+    ("heli", "EU", "FI", "Finland", "Russian helicopter suspected of breaching airspace", ""),
+    ("front", "EU", "UA", "Ukraine", "Army reports 116 clashes on the front line", "claim"),
     ("france", "EU", "FR", "France", "Sixth weekend of cost-of-living protests", ""),
-    ("aoun", "ME", "LB", "Lebanon", "Aoun demands an Israeli withdrawal", ""),
+    ("pope", "EU", "VA", "Vatican", "Pope warns of “enormous” risks from technology", ""),
+    ("eng", "EU", "ENG", "Rugby", "England beat New Zealand 37–12", ""),
+    ("aoun", "ME", "LB", "Lebanon", "President Aoun demands an Israeli withdrawal", ""),
+    ("israel", "ME", "IL", "Israel", "Bennett backs a unity government under Eisenkot", ""),
+    ("houthi", "ME", "YE", "Yemen", "ISW says the Houthis are fortifying the coast", "claim"),
     ("peru", "AM", "PE", "Peru", "M6.7 quake in the Andes; Lima shakes", ""),
+    ("fbi", "AM", "US", "US", "Trump plays down the FBI database hack", ""),
     ("iran", "AM", "US", "US", "Trump says he wants a “permanent” Iran deal", ""),
+    ("brazil", "AM", "BR", "Brazil", "Lula calls the fiscal bill “an adjustment”", ""),
+    ("in", "AP", "IN", "India", "Google gives IIT Kharagpur $5m for AI research", ""),
+    ("bd", "AP", "BD", "Bangladesh", "Extra paramilitary troops deployed amid unrest", ""),
+    ("kr", "AP", "KR", "S. Korea", "Ruling party targets the top judge", ""),
+    ("nk", "AP", "KP", "N. Korea", "State media report Kim visiting school factories", "report"),
+    ("cric", "AP", "NZ", "Cricket", "India reach 486/4 against NZ in Wellington", ""),
+    ("eg", "AF", "EG", "Egypt", "Sisi calls for reform of global finance", ""),
     ("sudan", "AF", "SD", "Sudan", "Relief group accuses RSF of killing children", "claim"),
+    ("oyo", "AF", "CG", "Congo", "Kenya’s Ruto at a four-way security summit", ""),
 ]
 
 ORDER = [x["k"] for x in LEADS] + [x["k"] for x in CARDS] + [b[0] for b in BRIEFS]
@@ -97,6 +114,11 @@ def kicker(x):
             f'<span class="src">{CHECK}{e(x["st"][1])}</span></div>')
 
 
+def card_kicker(x):
+    return (f'<div class="meta"><span class="kick" style="color:{rc(x["r"])}">{e(x["t"])}</span>'
+            f'<span class="src">{CHECK}{e(x["st"][1])}</span></div>')
+
+
 def card_art(svg):
     """Card drawings keep their 160x56 shape and scale to the card width."""
     return svg.replace("<svg ", '<svg preserveAspectRatio="xMidYMid meet" ', 1)
@@ -107,7 +129,7 @@ leads = "".join(
     f'<h1>{e(x["h"])}</h1><p>{e(x["p"])}</p></div>' for x in LEADS)
 
 cards = "".join(
-    f'<div class="card" style="--c:{rc(x["r"])}"><div class="art2">{card_art(x["art"])}</div>{kicker(x)}'
+    f'<div class="card" style="--c:{rc(x["r"])}"><div class="art2">{card_art(x["art"])}</div>{card_kicker(x)}'
     f'<h2>{e(x["h"])}</h2><p>{e(x["p"])}</p></div>' for x in CARDS)
 
 briefs = "".join(
