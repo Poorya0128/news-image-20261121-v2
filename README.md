@@ -1,22 +1,25 @@
 # The One-Day World: Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is one 1024×1024 newspaper front page covering 10 numbered stories, plus 4 briefs, from Saturday 21 November 2026.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **44 stories** from 6 continents, all from Saturday 21 November 2026.
 
 ![entry](entry.png)
 
-## What is on the page
-- **Lead (1):** Drones set the Russian cargo ship Sparta II ablaze off Finland, with an illustration drawn in code.
-- **World map:** numbered pins 1–10 that match the numbered story cards. Mercury (story 6) gets its own inset.
-- **Nine story cards:** Sinaloa, Hormuz, Geneva, COP31, BepiColombo, Banda Sea quake, France, Gaza, FBI hack. Each card has a region tag, an icon, a headline, a short summary and its sources.
-- **"Also on Saturday" strip:** Kyiv, the Premier League, the F1 Las Vegas GP, and Egypt's Aswan Forum.
+## Layout
+- **Lead (1):** drones set the Russian cargo ship Sparta II ablaze off Finland, with an illustration drawn in code.
+- **World map:** 32 numbered pins that use the same numbers as the stories, plus a Mercury inset for story 6.
+- **"By the numbers" strip:** each figure links back to its story number.
+- **Five illustrated cards (2–6):** Sinaloa, Hormuz, Kryvyi Rih, COP31, BepiColombo.
+- **Five regional columns (7–34):** Europe, Middle East, Americas · UN, Asia-Pacific, Africa. Every brief has a place tag and a source.
+- **Sport band (35–44).**
+- **Date check:** a box listing the stories left out because they happened on Friday 20 November.
 
-All facts and the source for each story are listed in [SOURCES.md](SOURCES.md). Stories that happened on Friday 20 November were left out on purpose.
+Every story, with its links, is listed in [SOURCES.md](SOURCES.md).
 
-## Run it
+## Run
 ```
 MAKEFUN_OUTPUT_DIR=./out python3 main.py      # or: MAKEFUN_OUTPUT_DIR=./out node main.ts
 ```
-Without `MAKEFUN_OUTPUT_DIR` it writes `/output/entry.png`. The program uses only the standard library. It has no network access, no clock and no randomness, so two runs give byte-identical output.
+Without `MAKEFUN_OUTPUT_DIR` the program writes `/output/entry.png`. It uses only the standard library, with no network access, no clock and no randomness, so every run gives byte-identical output.
 
-## How the image is built
-`poster/index.html` (HTML, CSS and hand-written SVG, using the bundled Noto Sans fonts under the SIL OFL) is rendered with headless Chromium by `tools/render.sh` into `entry.png`. All lettering is real typeset text, so nothing is garbled. The page contains no photos or copied images.
+## Build
+`tools/build.py` generates `poster/index.html` from the story data. Numbers are assigned automatically and checked, so the map pins and the text always agree. `tools/render.sh` then renders the page to `entry.png` with headless Chromium. All lettering is real typeset text (Noto Sans, SIL OFL). The page contains no photos.
