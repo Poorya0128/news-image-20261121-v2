@@ -34,8 +34,8 @@ def kryvyi():
 
 def cop31():
     b = '<rect width="160" height="56" fill="#e6dcc3"/><rect y="42" width="160" height="14" fill="#b9a983"/>'
-    b += '<g transform="translate(8 8)"><rect width="1.6" height="22" fill="#555"/><rect x="1.6" width="18" height="12" fill="#e30a17"/><circle cx="9" cy="6" r="3.3" fill="#fff"/><circle cx="10.1" cy="6" r="2.6" fill="#e30a17"/></g>'
-    b += '<g transform="translate(34 8)"><rect width="1.6" height="22" fill="#555"/><rect x="1.6" width="18" height="12" fill="#012169"/><path d="M1.6 0 L10 5 M10 0 L1.6 5" stroke="#fff" stroke-width="1.2"/><circle cx="15" cy="8.5" r="1.4" fill="#fff"/></g>'
+    b += '<g transform="translate(8 17)"><rect width="1.6" height="13" fill="#555"/><rect x="1.6" width="18" height="12" fill="#e30a17"/><circle cx="9" cy="6" r="3.3" fill="#fff"/><circle cx="10.1" cy="6" r="2.6" fill="#e30a17"/></g>'
+    b += '<g transform="translate(34 17)"><rect width="1.6" height="13" fill="#555"/><rect x="1.6" width="18" height="12" fill="#012169"/><path d="M1.6 0 L10 5 M10 0 L1.6 5" stroke="#fff" stroke-width="1.2"/><circle cx="15" cy="8.5" r="1.4" fill="#fff"/></g>'
     b += '<rect x="4" y="30" width="56" height="12" fill="#6b5b3a"/><text x="32" y="39" font-size="8.5" font-weight="800" fill="#fff" text-anchor="middle">ANTALYA</text>'
     b += '<g transform="translate(64 5)"><rect width="40" height="44" fill="#fff" stroke="#777"/><path d="M5 9 h30 M5 15 h26 M5 31 h30 M5 37 h20" stroke="#bbb" stroke-width="2"/>'
     b += '<text x="3" y="25" font-size="8.5" font-weight="800" fill="#1a6f3e">FOSSIL?</text><path d="M2 22 h36" stroke="#111" stroke-width="1.2"/></g>'
@@ -47,10 +47,10 @@ def eubudget():
     b = '<rect width="160" height="56" fill="#003399"/>'
     for i in range(12):
         a = i * math.pi / 6
-        b += f'<circle cx="{18 + 11 * math.cos(a):.1f}" cy="{22 + 11 * math.sin(a):.1f}" r="1.7" fill="#ffcc00"/>'
-    b += '<rect x="38" y="8" width="116" height="13" fill="#8fa6e6"/><text x="42" y="18" font-size="8.5" font-weight="800" fill="#001a66">COMMISSION</text>'
-    b += '<rect x="38" y="26" width="84" height="13" fill="#ffcc00"/><text x="42" y="36" font-size="8.5" font-weight="800" fill="#001a66">COSTA</text>'
-    b += '<rect x="122" y="26" width="32" height="13" fill="none" stroke="#ffcc00" stroke-dasharray="3 2"/>'
+        b += f'<circle cx="{18 + 10 * math.cos(a):.1f}" cy="{29 + 10 * math.sin(a):.1f}" r="1.6" fill="#ffcc00"/>'
+    b += '<rect x="38" y="17" width="116" height="11" fill="#8fa6e6"/><text x="42" y="25.5" font-size="8.5" font-weight="800" fill="#001a66">COMMISSION</text>'
+    b += '<rect x="38" y="31" width="84" height="11" fill="#ffcc00"/><text x="42" y="39.5" font-size="8.5" font-weight="800" fill="#001a66">COSTA</text>'
+    b += '<rect x="122" y="31" width="32" height="11" fill="none" stroke="#ffcc00" stroke-dasharray="3 2"/>'
     b += '<text x="154" y="52" font-size="11" font-weight="800" fill="#fff" text-anchor="end">−€204bn</text>'
     b += '<text x="6" y="51" font-size="8.5" font-weight="700" fill="#cfd8ff">2028–34</text>'
     return svg(b)
@@ -71,8 +71,8 @@ def bitcoin():
 def bepi():
     b = '<rect width="160" height="56" fill="#1a1236"/>'
     b += '<g fill="#fff" opacity=".7"><circle cx="8" cy="8" r="1"/><circle cx="70" cy="50" r="1"/><circle cx="150" cy="48" r="1"/></g>'
-    b += '<circle cx="36" cy="30" r="20" fill="#9b948c"/><circle cx="29" cy="23" r="4" fill="#7c766f"/><circle cx="43" cy="37" r="5" fill="#7c766f"/>'
-    b += '<ellipse cx="36" cy="30" rx="32" ry="9" fill="none" stroke="#f2c94c" stroke-width="1.3" stroke-dasharray="3 2" transform="rotate(-16 36 30)"/>'
+    b += '<g transform="translate(0 5)"><circle cx="36" cy="30" r="20" fill="#9b948c"/><circle cx="29" cy="23" r="4" fill="#7c766f"/><circle cx="43" cy="37" r="5" fill="#7c766f"/>'
+    b += '<ellipse cx="36" cy="30" rx="32" ry="9" fill="none" stroke="#f2c94c" stroke-width="1.3" stroke-dasharray="3 2" transform="rotate(-16 36 30)"/></g>'
     b += '<g transform="translate(78 14) rotate(-16)"><rect x="-4" y="-4" width="8" height="8" fill="#e6e6e6"/><rect x="-18" y="-2.5" width="13" height="5" fill="#3d6fd6"/><rect x="5" y="-2.5" width="13" height="5" fill="#3d6fd6"/></g>'
     b += tag(156, 30, "IN ORBIT", "#f2c94c", "#111", 9, "end")
     return svg(b)
@@ -90,11 +90,11 @@ def riemann():
 
 def banda():
     b = '<rect width="160" height="56" fill="#0f7c86"/>'
-    b += '<path d="M0 30 L12 30 L16 22 L20 40 L24 12 L28 48 L32 18 L36 36 L40 30 L50 30" stroke="#fff" stroke-width="1.6" fill="none"/>'
+    b += '<path d="M0 34 L12 34 L16 27 L20 44 L24 18 L28 51 L32 23 L36 40 L40 34 L50 34" stroke="#fff" stroke-width="1.6" fill="none"/>'
     b += '<path d="M64 26 L84 21 L100 20 L106 24 L90 29 L72 32Z" fill="#cfe8d0"/>'
     b += '<path d="M96 56 L104 47 L124 46 L144 50 L160 48 L160 56Z" fill="#cfe8d0"/>'
     b += '<circle cx="124" cy="18" r="3.5" fill="#ffd36b"/><circle cx="124" cy="18" r="9" fill="none" stroke="#ffd36b" stroke-width="1.3"/>'
-    b += '<text x="54" y="13" font-size="13" font-weight="800" fill="#ffd36b">M6.8</text>'
+    b += '<text x="64" y="14" font-size="13" font-weight="800" fill="#ffd36b">M6.8</text>'
     b += '<text x="66" y="42" font-size="8.5" font-weight="700" fill="#e6fff7">TIMOR</text><text x="112" y="44" font-size="8.5" font-weight="700" fill="#e6fff7">DARWIN</text>'
     return svg(b)
 
@@ -143,7 +143,7 @@ def mama():
     b = '<rect width="160" height="56" fill="#1b0f2e"/>'
     b += '<path d="M10 0 L30 56 M150 0 L130 56" stroke="#f2c94c" stroke-width="18" opacity=".12"/>'
     b += '<rect y="44" width="160" height="12" fill="#3a2460"/>'
-    b += '<g transform="translate(26 8)"><path d="M0 0 H22 V8 C22 18 14 22 11 22 C8 22 0 18 0 8Z" fill="#f2c94c"/><rect x="8" y="22" width="6" height="8" fill="#f2c94c"/><rect x="3" y="30" width="16" height="4" fill="#f2c94c"/></g>'
+    b += '<g transform="translate(30 17) scale(.95)"><path d="M0 0 H22 V8 C22 18 14 22 11 22 C8 22 0 18 0 8Z" fill="#f2c94c"/><rect x="8" y="22" width="6" height="8" fill="#f2c94c"/><rect x="3" y="30" width="16" height="4" fill="#f2c94c"/></g>'
     b += tag(157, 8, "BTS · 5 AWARDS", "#f2c94c", "#111", 9, "end")
     b += tag(61, 26, "OSAKA", "#fff", "#1b0f2e", 9)
     return svg(b)
@@ -194,9 +194,9 @@ def flag(code):
 # ------------------------------------------------------------------ new card drawings
 def sinaloa_c():
     b = '<rect width="160" height="56" fill="#121a30"/>'
-    b += '<path d="M40 14 L22 56 L64 56Z M112 10 L94 56 L136 56Z" fill="#fff7c2" opacity=".16"/>'
-    b += '<g fill="#000"><g transform="translate(40 12)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g>'
-    b += '<g transform="translate(112 9) scale(.85)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g></g>'
+    b += '<path d="M74 14 L56 56 L98 56Z M128 10 L110 56 L152 56Z" fill="#fff7c2" opacity=".16"/>'
+    b += '<g fill="#000"><g transform="translate(74 12)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g>'
+    b += '<g transform="translate(128 9) scale(.85)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g></g>'
     b += '<rect y="44" width="160" height="12" fill="#2a2228"/>'
     for x in (74, 114):
         b += (f'<g transform="translate({x} 44)"><rect y="-9" width="22" height="9" fill="#111"/><rect x="22" y="-6" width="8" height="6" fill="#111"/>'

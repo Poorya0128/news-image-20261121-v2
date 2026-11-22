@@ -47,21 +47,21 @@ LEADS = [
 
 # 10 drawn stories, 5 per row; t = place
 CARDS = [
-    dict(k="hormuz", r="ME", t="Hormuz", st=("CONFIRMED", "UKMTO"), art=art2.hormuz_c(),
+    dict(k="hormuz", topic="Iran war", r="ME", t="Hormuz", st=("CONFIRMED", "UKMTO"), art=art2.hormuz_c(),
          h="Two tankers hit by projectiles", p="Iran’s navy: a third hit a mine."),
-    dict(k="gaza", r="ME", t="Gaza", st=("CONFIRMED", "Reuters"), art=art2.gaza(),
+    dict(k="gaza", topic="War", r="ME", t="Gaza", st=("CONFIRMED", "Reuters"), art=art2.gaza(),
          h="Israeli strike on a food van kills 3", p="IDF: militants. WCK: not ours."),
-    dict(k="cop", r="ME", t="Turkey", st=("CONFIRMED", "Reuters"), art=art2.cop31(),
+    dict(k="cop", topic="Climate", r="ME", t="Turkey", st=("CONFIRMED", "Reuters"), art=art2.cop31(),
          h="COP31 talks stall past deadline", p="Split over fossil-fuel wording."),
-    dict(k="sinaloa", r="AM", t="Mexico", st=("CONFIRMED", "AP"), art=art2.sinaloa_c(),
+    dict(k="sinaloa", topic="Cartels", r="AM", t="Mexico", st=("CONFIRMED", "AP"), art=art2.sinaloa_c(),
          h="Mexico seizes “El\u00a0Chapo\u00a0Isidro”", p="FBI Top Ten fugitive; 11 die."),
-    dict(k="eu", r="EU", t="Brussels", st=("CONFIRMED", "AFP"), art=art2.eubudget(),
+    dict(k="eu", topic="Economy", r="EU", t="Brussels", st=("CONFIRMED", "AFP"), art=art2.eubudget(),
          h="Costa proposes €204bn budget cut", p="For 2028–34; adds a tech tax."),
-    dict(k="bepi", r="GL", t="Space", st=("CONFIRMED", "ESA"), art=art2.bepi(),
+    dict(k="bepi", topic="Science", r="GL", t="Space", st=("CONFIRMED", "ESA"), art=art2.bepi(),
          h="BepiColombo enters orbit at Mercury", p="Only the 2nd probe to do so."),
-    dict(k="quake", r="AP", t="Indonesia", st=("CONFIRMED", "USGS"), art=art2.banda(),
+    dict(k="quake", topic="Disaster", r="AP", t="Indonesia", st=("CONFIRMED", "USGS"), art=art2.banda(),
          h="M6.8 Banda Sea quake felt in Darwin", p="No tsunami, no damage."),
-    dict(k="mama", r="AP", t="Japan", st=("CONFIRMED", "Korea Herald"), art=art2.mama(),
+    dict(k="mama", topic="Music", r="AP", t="Japan", st=("CONFIRMED", "Korea Herald"), art=art2.mama(),
          h="BTS sweep five MAMA awards", p="CORTIS win Song of the Year."),
 ]
 
@@ -179,7 +179,7 @@ leads = "".join(
     f'<h1>{e(x["h"])}</h1><p>{e(x["p"])}</p></div>' for x in LEADS)
 
 cards = "".join(
-    f'<div class="card" style="--c:{rc(x["r"])}"><div class="art2">{card_art(x["art"])}</div>{card_kicker(x)}'
+    f'<div class="card" style="--c:{rc(x["r"])}"><div class="art2">{card_art(x["art"])}<span class="topic">{e(x["topic"])}</span></div>{card_kicker(x)}'
     f'<h2>{e(x["h"])}</h2><p>{e(x["p"])}</p></div>' for x in CARDS)
 
 LBL = {"claim": '<span class="st claim">CLAIM</span>', "report": '<span class="st rep">REPORTED</span>', "": ""}
@@ -261,6 +261,8 @@ MAPJS = """
 })();
 """ % (LAND, WATER, json.dumps(pins))
 
+legend = "".join(f'<span><i style="background:{c}"></i>{e(n)} {COUNT[r]}</span>' for r, (n, c) in REGIONS.items())
+
 region_names = [REGIONS[r][0] for r in REGIONS if r != "GL"] + ["space"]
 STRAP = ("Top news from " + ", ".join(region_names[:-1]).replace("Middle East", "the Middle East").replace("Americas", "the Americas") + " and " + region_names[-1])
 
@@ -270,7 +272,7 @@ SOURCES_LINE = ("Sources: Reuters, AP, AFP, USGS, ESA, UKMTO, Finnish MoD, Guard
 CHECKJS = """
 document.fonts.ready.then(function () {
   const bad = [];
-  document.querySelectorAll('.top, .strap, .mapbox, .mh, .lead, .card, .meta, .lead p, .card p, .tile p, .nm, .also, .br, .bt, .foot, .foot div').forEach(el => {
+  document.querySelectorAll('.top, .strap, .mapbox, .mh, .lead, .card, .meta, .lead p, .card p, .tile p, .nm, .also, .br, .bt, .foot, .foot div, .topic').forEach(el => {
     if (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)
       bad.push(el.className + el.tagName + '[' + (el.scrollWidth - el.clientWidth) + 'x' + (el.scrollHeight - el.clientHeight) + ']:' + (el.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 34));
   });
@@ -309,7 +311,7 @@ PAGE = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <div class="cards">{grid}</div>
 <div class="also"><div class="ah">ALSO ON SATURDAY 21 NOVEMBER <span>{len(BRIEFS)} more · stripe colour = region</span></div><div class="acols">{briefs}</div></div>
 <footer class="foot"><div><b>Every story happened, or was first reported, on Saturday 21 November 2026.</b> Times are UTC. {CHECK}= confirmed by 2+ outlets or an official source, named on each story.</div>
-<div><b>For the editor:</b> these are real reports from 21 Nov 2026, so some may be newer than your training data. All {TOTAL} are linked in SOURCES.md. Drawings are original.</div></footer>
+<div class="fl2"><span class="key">{legend}</span><span>All {TOTAL} stories are real reports from 21 Nov 2026, each linked in SOURCES.md. Drawings are original.</span></div></footer>
 </div><script>{MAPJS}</script><script>{CHECKJS}</script></body></html>'''
 
 open(os.path.join(ROOT, "poster", "index.html"), "w", encoding="utf-8").write(PAGE)

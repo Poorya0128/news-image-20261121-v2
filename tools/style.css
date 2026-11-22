@@ -117,3 +117,13 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .dc p > span:last-child { flex: 1; min-width: 0; }
 .dc .lg { margin-top: 4px; align-items: center; font-size: 10.5px; white-space: nowrap; }
 .dc .lg .st { flex: none; }
+
+/* topic label on each small card drawing */
+.art2 { position: relative; }
+.topic { position: absolute; left: 4px; top: 4px; background: rgba(22,24,29,.88); color: #fff; font-family: "Small"; font-size: 10px; line-height: 14px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 0 5px; border-radius: 2px; white-space: nowrap; }
+
+/* footer colour key */
+.fl2 { display: flex; align-items: center; gap: 12px; }
+.key { display: inline-flex; gap: 9px; flex: none; }
+.key span { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: #16181d; }
+.key i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }

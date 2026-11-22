@@ -13,9 +13,9 @@ The bounty is judged by a vision model acting as an editor. It checks, in order:
 1. **Masthead:** the date in 62 px type, a line naming the regions covered, and a **"Where it happened"** dot map. Numbered pins match the numbers on the drawn stories; dots mark the briefs.
 2. **3 lead stories** (the Baltic drone strike, Bitcoin's two-year low, the Riemann proof), each with a drawing, a 26 px headline and a one-line summary.
 3. **"The day in UTC":** a 24-hour band drawn to scale. 8 events sit at their exact times, with the story number (or the country flag for briefs) and a short label above or below the band.
-4. **8 drawn stories** in a 5-column grid, each with a 20 px headline and one line of detail. The fifth column holds **"The day in numbers"** (6 figures) and the **date check** (what was counted, what was left out as Friday or Sunday news, and the meaning of the labels).
+4. **8 drawn stories** in a 5-column grid, each with a topic label on its drawing, a 20 px headline and one line of detail. The fifth column holds **"The day in numbers"** (6 figures) and the **date check** (what was counted, what was left out as Friday or Sunday news, and the meaning of the labels).
 5. **"Also on Saturday 21 November":** 22 more stories with flags, region stripes and their source. **CLAIM** (red) marks one side's account and **REPORTED** (yellow) an earlier event first made public on Saturday.
-6. **Footer** with the date rule, the meaning of the green check, and a note for the editor.
+6. **Footer** with the date rule, the meaning of the green check, and a colour key for the six regions.
 
 Every story names its source. One side's account is attributed in the wording ("Finland says", "Iran's navy", "ISW", "Relief group accuses"). The headlines still read when the page is shown at 300 px. `SOURCES.md` lists links for all 33 stories.
 
