@@ -1,19 +1,21 @@
 # The One-Day World: Saturday 21 November 2026
 
-This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **44 stories** from 6 continents, all from Saturday 21 November 2026.
+This is an entry for make.fun's "Sum up 21 November's world news in one image" bounty (`news-image-20261121`). It is a single 1024×1024 front page with **50 stories**, 12 drawn illustrations and a world map. Everything on the page happened, or was first reported, on Saturday 21 November 2026 (UTC).
 
 ![entry](entry.png)
 
-## Layout
-- **Lead (1):** drones set the Russian cargo ship Sparta II ablaze off Finland, with an illustration drawn in code.
-- **World map:** 32 numbered pins that use the same numbers as the stories, plus a Mercury inset for story 6.
-- **"By the numbers" strip:** each figure links back to its story number.
-- **Five illustrated cards (2–6):** Sinaloa, Hormuz, Kryvyi Rih, COP31, BepiColombo.
-- **Five regional columns (7–34):** Europe, Middle East, Americas · UN, Asia-Pacific, Africa. Every brief has a place tag and a source.
-- **Sport band (35–44).**
-- **Date check:** a box listing the stories left out because they happened on Friday 20 November.
+## What is on the page
+- **Masthead:** the date in large type, with a day-of-year ring (day 325, 40 left), the story and picture counts, and a "How to read" key.
+- **Region bar:** counts computed from the data (Europe 18 · Middle East 9 · Americas 6 · Asia-Pacific 9 · Africa 5 · Global 3 = 50).
+- **The day in UTC:** a timeline from about 04:00 (end of the Geneva talks) through 09:42 (the quake) and 18:24 (BepiColombo's burn) to night (COP31 halted).
+- **3 illustrated leads:** Sparta II off Finland, three tankers hit in Hormuz, "El Chapo Isidro" captured in Sinaloa.
+- **8 drawn cards:** Kryvyi Rih, COP31, the Geneva talks on killer robots, BepiColombo, the Banda Sea quake, France protests, Gaza aid strike, the EU budget.
+- **Dot-matrix world map:** numbered pins for stories 1–11, coloured dots for every brief, and a Mercury inset for the story that happened off the map.
+- **29 one-line briefs:** each has a place, a source, and either a **CLAIM** label (one side's word, attributed) or a ◆ mark for official data and statements.
+- **Sport band:** 10 results, all finished before midnight UTC, with a drawn scoreboard.
+- **Date check:** items left out because they happened on Friday 20 November or ended after 00:00 UTC on Sunday.
 
-Every story, with its links, is listed in [SOURCES.md](SOURCES.md).
+Every story's links are listed in [SOURCES.md](SOURCES.md), which is generated from the same data as the page.
 
 ## Run
 ```
@@ -22,4 +24,8 @@ MAKEFUN_OUTPUT_DIR=./out python3 main.py      # or: MAKEFUN_OUTPUT_DIR=./out nod
 Without `MAKEFUN_OUTPUT_DIR` the program writes `/output/entry.png`. It uses only the standard library, with no network access, no clock and no randomness, so every run gives byte-identical output.
 
 ## Build
-`tools/build.py` generates `poster/index.html` from the story data. Numbers are assigned automatically and checked, so the map pins and the text always agree. `tools/render.sh` then renders the page to `entry.png` with headless Chromium. All lettering is real typeset text (Noto Sans, SIL OFL). The page contains no photos.
+1. `python3 tools/sources.py` runs `tools/build.py`, which writes `poster/index.html`, and then writes `SOURCES.md`.
+   - Numbering, region counts, map pins and the total are computed and asserted, so the parts of the page can't contradict each other.
+2. `tools/render.sh` renders the page to `entry.png` with headless Chromium.
+
+All illustrations are SVG drawn in code (`tools/art.py`). All lettering is real typeset text (Noto Sans, SIL OFL). The page contains no photos.
