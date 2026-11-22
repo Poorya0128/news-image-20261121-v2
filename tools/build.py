@@ -102,17 +102,19 @@ COORDS = dict(
     sudan=(29.0, 11.5), oyo=(15.9, -1.0),
 )
 
-# (UTC time, caption, story key)
+# The day in UTC, drawn to scale on a 24-hour axis.
+# (UTC time, caption, story key, row "up"/"down", label side "l" = label starts at the marker, "r" = ends at it)
 TIMELINE = [
-    ("00:09", "Peru quake", "peru"),
-    ("c. 04:00", "Robot talks end", "robots"),
-    ("05:00", "Tanker hit", "hormuz"),
-    ("06:50", "Sparta II hit", "baltic"),
-    ("09:42", "Banda quake", "quake"),
-    ("10:34", "Airspace breach", "heli"),
-    ("15:16", "Bitcoin $60,192", "btc"),
-    ("20:00", "116 clashes", "front"),
+    ("00:09", "Peru M6.7 quake", "peru", "up", "l"),
+    ("c. 04:00", "Robot talks end", "robots", "down", "r"),
+    ("05:00", "Tanker hit off Oman", "hormuz", "up", "l"),
+    ("06:50", "Sparta II struck", "baltic", "down", "l"),
+    ("09:42", "Banda Sea M6.8 quake", "quake", "up", "l"),
+    ("10:34", "Finnish airspace breach", "heli", "down", "l"),
+    ("15:16", "Bitcoin rebounds to $60,192", "btc", "up", "l"),
+    ("20:00", "116 clashes", "front", "down", "l"),
 ]
+BRIEF_FLAG = {b[0]: b[2] for b in BRIEFS}
 
 # (figure, caption, story key)
 NUMBERS = [
@@ -137,7 +139,7 @@ REG = {**{x["k"]: x["r"] for x in LEADS + CARDS}, **{b[0]: b[1] for b in BRIEFS}
 COUNT = {r: sum(1 for v in REG.values() if v == r) for r in REGIONS}
 assert all(COUNT.values()), COUNT  # every region is covered
 DRAWN = len(LEADS) + len(CARDS)
-for _, _, k in TIMELINE + NUMBERS:
+for k in [t[2] for t in TIMELINE] + [x[2] for x in NUMBERS]:
     assert k in N, k
 assert set(COORDS) | {"btc", "riemann", "bepi"} == set(N), set(N) ^ set(COORDS)
 
@@ -187,8 +189,23 @@ briefs = "".join(
     f'<span class="bs">{e(src)}</span></div>'
     for _, r, fl, place, text, lab, src in BRIEFS)
 
-timeline = "".join(f'<div class="tk"><b>{e(t)}</b><i style="background:{rc(REG[k])}"></i><span>{num(k, "tn")}{e(c)}</span></div>'
-                   for t, c, k in TIMELINE)
+def minutes(t):
+    h, m = t.replace("c. ", "").split(":")
+    return int(h) * 60 + int(m)
+
+
+def tl_event(t, cap, k, row, side):
+    left = minutes(t) / 1440 * 100
+    flag = art2.flag(BRIEF_FLAG[k]) if k in BRIEF_FLAG else ""
+    mark = (f'<span class="mk" style="background:{rc(REG[k])}">{N[k]}</span>' if N[k] <= DRAWN
+            else f'<span class="mk dot" style="background:{rc(REG[k])}"></span>')
+    return (f'<div class="ev {row} {side}" style="left:{left:.3f}%"><i class="stem"></i>{mark}'
+            f'<span class="lab">{flag}<b>{e(t)}</b>{e(cap)}</span></div>')
+
+
+hours = "".join(f'<span class="hr" style="left:{h / 24 * 100:.3f}%">{h:02d}:00</span>' for h in (6, 12, 18))
+timeline = (f'<div class="band">{hours}<span class="hr end">24:00</span></div>'
+            + "".join(tl_event(*x) for x in TIMELINE))
 numbers = "".join(f'<div class="nm"><b>{num(k, "tn")}{e(v)}</b><span>{e(c)}</span></div>' for v, c, k in NUMBERS)
 numbers_tile = f'<div class="card tile"><div class="th">THE DAY IN NUMBERS</div><div class="nums">{numbers}</div></div>'
 datecheck_tile = (f'<div class="card tile dc"><div class="th red">DATE CHECK</div><p class="in">{CHECK}<span><b>In:</b> {e(DATE_IN)}</span></p>'
@@ -211,7 +228,7 @@ MAPJS = """
   const land = %s;
   const water = %s;
   const pins = %s;
-  const W = 252, H = 92, B = {lon0: -125, lon1: 180, lat0: 66, lat1: -45.5};
+  const W = 252, H = 88, B = {lon0: -125, lon1: 180, lat0: 64, lat1: -42.5};
   const sx = W / (B.lon1 - B.lon0), sy = H / (B.lat0 - B.lat1);
   const P = (lon, lat) => [(lon - B.lon0) * sx, (B.lat0 - lat) * sy];
   const inside = (x, y, poly) => { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
@@ -253,7 +270,7 @@ SOURCES_LINE = ("Sources: Reuters, AP, AFP, USGS, ESA, UKMTO, Finnish MoD, Guard
 CHECKJS = """
 document.fonts.ready.then(function () {
   const bad = [];
-  document.querySelectorAll('.top, .strap, .mapbox, .mh, .lead, .card, .meta, .lead p, .card p, .tile p, .nm, .tk, .tk span, .also, .br, .bt, .foot, .foot div').forEach(el => {
+  document.querySelectorAll('.top, .strap, .mapbox, .mh, .lead, .card, .meta, .lead p, .card p, .tile p, .nm, .also, .br, .bt, .foot, .foot div').forEach(el => {
     if (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)
       bad.push(el.className + el.tagName + '[' + (el.scrollWidth - el.clientWidth) + 'x' + (el.scrollHeight - el.clientHeight) + ']:' + (el.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 34));
   });
@@ -261,6 +278,14 @@ document.fonts.ready.then(function () {
     const cs = getComputedStyle(el), h = el.style.height; el.style.height = 'auto';
     const lines = Math.round((el.clientHeight - parseFloat(cs.paddingTop)) / parseFloat(cs.lineHeight)); el.style.height = h;
     if (lines > 2) bad.push('LINES ' + lines + ':' + el.textContent.slice(0, 34));
+  });
+  const ax = document.querySelector('.axis').getBoundingClientRect();
+  const labs = [...document.querySelectorAll('.ev .lab')].map(el => [el, el.getBoundingClientRect()]);
+  labs.forEach(([el, r], i) => {
+    if (r.left < ax.left - 1 || r.right > ax.right + 1) bad.push('TL-EDGE:' + el.textContent);
+    labs.slice(i + 1).forEach(([el2, r2]) => {
+      if (r.left < r2.right + 4 && r2.left < r.right + 4 && r.top < r2.bottom && r2.top < r.bottom) bad.push('TL-OVERLAP:' + el.textContent + '/' + el2.textContent);
+    });
   });
   const t = document.querySelector('.title');
   if (t.scrollWidth > t.clientWidth + 1) bad.push('TITLE-WIDTH');
@@ -278,9 +303,9 @@ PAGE = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <div class="top"><span>THE WORLD ON ONE PAGE</span><span>{TOTAL} STORIES · {len(REGIONS)} REGIONS · {DRAWN} DRAWN</span></div>
 <div class="mast"><div class="mleft"><div class="title">Saturday 21 November 2026</div><div class="strap">{e(STRAP)}</div></div>
   <div class="mapbox"><div class="mh">WHERE IT HAPPENED <span>off map: {", ".join(map(str, OFFMAP))}</span></div>
-  <svg id="world" width="252" height="92" viewBox="0 0 252 92" xmlns="http://www.w3.org/2000/svg"></svg></div></div>
+  <svg id="world" width="252" height="88" viewBox="0 0 252 88" xmlns="http://www.w3.org/2000/svg"></svg></div></div>
 <div class="leads">{leads}</div>
-<div class="tline"><div class="tlh">THE DAY<br>IN UTC</div><div class="axis">{timeline}</div></div>
+<div class="tline"><div class="tlh">THE DAY<br>IN UTC<small>00:00 – 24:00</small></div><div class="axis">{timeline}</div></div>
 <div class="cards">{grid}</div>
 <div class="also"><div class="ah">ALSO ON SATURDAY 21 NOVEMBER <span>{len(BRIEFS)} more · stripe colour = region</span></div><div class="acols">{briefs}</div></div>
 <footer class="foot"><div><b>Every story happened, or was first reported, on Saturday 21 November 2026.</b> Times are UTC. {CHECK}= confirmed by 2+ outlets or an official source, named on each story.</div>

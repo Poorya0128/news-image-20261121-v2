@@ -15,7 +15,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 1024px; height: 1024px; overflow: hidden; }
 body { background: #f5f0e6; color: #16181d; font-family: "Body", sans-serif; -webkit-font-smoothing: antialiased; }
-.page { position: absolute; inset: 8px 10px 0 10px; }
+.page { position: absolute; inset: 6px 10px 0 10px; }
 h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 
 /* masthead */
@@ -35,7 +35,7 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .src { margin-left: auto; display: inline-flex; align-items: center; font-family: "Small"; font-weight: 700; color: #1e5f30; }
 
 /* 3 lead stories */
-.leads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 7px; }
+.leads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px; }
 .lead { background: #fbf8f1; box-shadow: 0 0 0 1px #d8cfbd; border-top: 5px solid var(--c); overflow: hidden; height: 232px; }
 .art svg { display: block; }
 .lead .meta { padding: 3px 9px 0; }
@@ -45,7 +45,7 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .lead p { font-family: "Small"; font-size: 14px; line-height: 18px; padding: 2px 9px 0; color: #222; white-space: nowrap; overflow: hidden; }
 
 /* 8 drawn stories, 4 per row */
-.cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px 10px; margin-top: 7px; }
+.cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px 10px; margin-top: 6px; }
 .card { background: #fbf8f1; box-shadow: 0 0 0 1px #d8cfbd; border-top: 5px solid var(--c); overflow: hidden; height: 154px; }
 .art2 svg { display: block; width: 100%; height: auto; }
 .card .meta { padding: 3px 7px 0; }
@@ -59,7 +59,7 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .ah { font-family: "Small"; font-size: 12.5px; line-height: 16px; font-weight: 800; letter-spacing: .1em; border-bottom: 2px solid #16181d; padding-bottom: 1px; }
 .ah span { font-size: 11px; letter-spacing: 0; font-weight: 600; color: #555; margin-left: 6px; }
 .acols { display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(11, auto); gap: 0 22px; }
-.br { display: flex; align-items: center; gap: 8px; height: 18.6px; border-bottom: 1px dotted #c9bfa9; border-left: 4px solid var(--c); padding-left: 7px; min-width: 0; }
+.br { display: flex; align-items: center; gap: 8px; height: 18.1px; border-bottom: 1px dotted #c9bfa9; border-left: 4px solid var(--c); padding-left: 7px; min-width: 0; }
 .flag { flex: none; display: block; width: 19px; height: 13px; box-shadow: 0 0 0 .5px rgba(0,0,0,.35); }
 .bt { font-size: 14px; line-height: 17px; white-space: nowrap; overflow: hidden; min-width: 0; }
 .bt b { font-weight: 800; }
@@ -80,15 +80,28 @@ h1, h2, .title { font-family: "Head", sans-serif; text-wrap: balance; }
 .st.rep { color: #16181d; background: #f2c94c; }
 .bt .st { margin-left: 5px; }
 
-/* the day in UTC: a timeline axis between the leads and the cards */
-.tline { display: flex; margin-top: 7px; height: 40px; }
-.tlh { width: 70px; flex: none; background: #16181d; color: #fff; font-family: "Small"; font-size: 10.5px; line-height: 13px; font-weight: 800; letter-spacing: .06em; display: flex; align-items: center; justify-content: center; text-align: center; }
-.axis { flex: 1; display: grid; grid-template-columns: repeat(8, 1fr); background: #fbf8f1; box-shadow: 0 0 0 1px #d8cfbd; position: relative; }
-.axis::before { content: ""; position: absolute; left: 0; right: 0; top: 18px; height: 2px; background: #16181d; }
-.tk { position: relative; padding: 2px 4px 0 10px; min-width: 0; overflow: hidden; }
-.tk b { display: block; font-family: "Small"; font-size: 12.5px; line-height: 15px; font-weight: 800; }
-.tk i { position: absolute; left: 6px; top: 15px; width: 8px; height: 8px; border-radius: 50%; border: 1px solid #fff; }
-.tk > span { display: flex; align-items: center; margin-top: 5px; font-family: "Small"; font-size: 11.5px; line-height: 15px; color: #333; white-space: nowrap; overflow: hidden; }
+/* the day in UTC: events drawn to scale on a 24-hour band */
+.tline { display: flex; gap: 0; margin-top: 6px; height: 56px; }
+.tlh { width: 74px; flex: none; background: #16181d; color: #fff; font-family: "Small"; font-size: 10.5px; line-height: 13px; font-weight: 800; letter-spacing: .06em; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.tlh small { display: block; font-size: 9.5px; font-weight: 600; letter-spacing: 0; color: #c9c2b4; margin-top: 3px; }
+.axis { flex: 1; position: relative; background: #fbf8f1; box-shadow: 0 0 0 1px #d8cfbd; margin-left: 1px; }
+.band { position: absolute; left: 0; right: 0; top: 21px; height: 14px;
+  background: linear-gradient(90deg, #e9e1cf 0 25%, #f4efe3 25% 50%, #e9e1cf 50% 75%, #f4efe3 75% 100%); border-top: 1px solid #b9ae96; border-bottom: 1px solid #b9ae96; }
+.hr { position: absolute; top: 0; height: 12px; padding-right: 3px; border-right: 1px solid #9c9078; transform: translateX(-100%); font-family: "Small"; font-size: 9.5px; line-height: 12px; font-weight: 700; color: #7a705c; }
+.hr.end { right: 0; border-right: 0; transform: none; }
+.ev { position: absolute; top: 0; bottom: 0; width: 0; }
+.mk { position: absolute; left: -8px; top: 20px; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.25); color: #fff; font-family: "Small"; font-size: 9.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.mk.dot { left: -5px; top: 23px; width: 10px; height: 10px; }
+.stem { position: absolute; left: -.5px; width: 1px; background: #16181d; }
+.ev.up .stem { top: 15px; height: 7px; }
+.ev.down .stem { top: 35px; height: 6px; }
+.lab { position: absolute; display: flex; align-items: center; gap: 4px; white-space: nowrap; font-family: "Small"; font-size: 11.5px; line-height: 15px; color: #222; }
+.lab b { font-weight: 800; color: #16181d; }
+.lab .flag { width: 16px; height: 11px; }
+.ev.up .lab { top: 1px; }
+.ev.down .lab { top: 40px; }
+.ev.l .lab { left: -3px; }
+.ev.r .lab { right: -3px; }
 
 /* info tiles inside the card grid */
 .tile { border-top-color: #16181d; padding: 4px 8px 0; }
