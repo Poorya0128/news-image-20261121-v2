@@ -51,7 +51,7 @@ def eubudget():
     b += '<rect x="38" y="8" width="116" height="13" fill="#8fa6e6"/><text x="42" y="18" font-size="8.5" font-weight="800" fill="#001a66">COMMISSION</text>'
     b += '<rect x="38" y="26" width="84" height="13" fill="#ffcc00"/><text x="42" y="36" font-size="8.5" font-weight="800" fill="#001a66">COSTA</text>'
     b += '<rect x="122" y="26" width="32" height="13" fill="none" stroke="#ffcc00" stroke-dasharray="3 2"/>'
-    b += '<text x="138" y="52" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">−€204bn</text>'
+    b += '<text x="154" y="52" font-size="11" font-weight="800" fill="#fff" text-anchor="end">−€204bn</text>'
     b += '<text x="6" y="51" font-size="8.5" font-weight="700" fill="#cfd8ff">2028–34</text>'
     return svg(b)
 
@@ -74,7 +74,7 @@ def bepi():
     b += '<circle cx="36" cy="30" r="20" fill="#9b948c"/><circle cx="29" cy="23" r="4" fill="#7c766f"/><circle cx="43" cy="37" r="5" fill="#7c766f"/>'
     b += '<ellipse cx="36" cy="30" rx="32" ry="9" fill="none" stroke="#f2c94c" stroke-width="1.3" stroke-dasharray="3 2" transform="rotate(-16 36 30)"/>'
     b += '<g transform="translate(78 14) rotate(-16)"><rect x="-4" y="-4" width="8" height="8" fill="#e6e6e6"/><rect x="-18" y="-2.5" width="13" height="5" fill="#3d6fd6"/><rect x="5" y="-2.5" width="13" height="5" fill="#3d6fd6"/></g>'
-    b += tag(100, 30, "18:24 UTC", "#f2c94c", "#111", 9)
+    b += tag(156, 30, "18:24 UTC", "#f2c94c", "#111", 9, "end")
     return svg(b)
 
 
@@ -143,9 +143,9 @@ def mama():
     b = '<rect width="160" height="56" fill="#1b0f2e"/>'
     b += '<path d="M10 0 L30 56 M150 0 L130 56" stroke="#f2c94c" stroke-width="18" opacity=".12"/>'
     b += '<rect y="44" width="160" height="12" fill="#3a2460"/>'
-    b += '<g transform="translate(40 8)"><path d="M0 0 H22 V8 C22 18 14 22 11 22 C8 22 0 18 0 8Z" fill="#f2c94c"/><rect x="8" y="22" width="6" height="8" fill="#f2c94c"/><rect x="3" y="30" width="16" height="4" fill="#f2c94c"/></g>'
-    b += tag(74, 8, "BTS · 5 AWARDS", "#f2c94c", "#111", 9)
-    b += tag(74, 26, "OSAKA", "#fff", "#1b0f2e", 9)
+    b += '<g transform="translate(26 8)"><path d="M0 0 H22 V8 C22 18 14 22 11 22 C8 22 0 18 0 8Z" fill="#f2c94c"/><rect x="8" y="22" width="6" height="8" fill="#f2c94c"/><rect x="3" y="30" width="16" height="4" fill="#f2c94c"/></g>'
+    b += tag(157, 8, "BTS · 5 AWARDS", "#f2c94c", "#111", 9, "end")
+    b += tag(61, 26, "OSAKA", "#fff", "#1b0f2e", 9)
     return svg(b)
 
 
@@ -196,7 +196,7 @@ def sinaloa_c():
     b += '<g fill="#000"><g transform="translate(40 12)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g>'
     b += '<g transform="translate(112 9) scale(.85)"><ellipse rx="10" ry="4"/><rect x="7" y="-1.5" width="15" height="2.5"/><rect x="-16" y="-7" width="32" height="1.6"/></g></g>'
     b += '<rect y="44" width="160" height="12" fill="#2a2228"/>'
-    for x in (58, 98):
+    for x in (74, 114):
         b += (f'<g transform="translate({x} 44)"><rect y="-9" width="22" height="9" fill="#111"/><rect x="22" y="-6" width="8" height="6" fill="#111"/>'
               f'<path d="M3 -9 C1 -17 7 -19 5 -26 C11 -21 10 -15 13 -13 C14 -18 18 -20 17 -27 C24 -20 23 -13 20 -9Z" fill="#ff7a1a"/></g>')
     b += tag(4, 22, "11 KILLED", "#fff", "#111", 9)
@@ -208,7 +208,7 @@ def hormuz_c():
     b += '<path d="M0 0 H160 V14 L132 18 L110 12 L84 16 L60 10 L30 12 L0 8Z" fill="#e2cf9f"/>'
     b += '<path d="M0 56 V40 L30 38 L60 44 L78 34 L88 30 L96 38 L104 48 L130 52 L160 50 V56Z" fill="#e2cf9f"/>'
     b += '<text x="66" y="9" font-size="8.5" font-weight="800" fill="#5e4a1e" letter-spacing="2">IRAN</text>'
-    for x, y in ((92, 24), (112, 30)):
+    for x, y in ((100, 24), (120, 30)):
         b += (f'<g transform="translate({x} {y})"><path d="M-9 0 L9 0 L7 4 L-7 4Z" fill="#111"/><path d="M-2 -1 l1.5 -7 l1.5 4 l2 -6 l1 7z" fill="#ffd36b"/></g>')
     b += '<g transform="translate(140 34)"><path d="M-9 0 L9 0 L7 4 L-7 4Z" fill="#111" opacity=".7"/><text x="0" y="-2" font-size="9" font-weight="800" fill="#fff" text-anchor="middle">?</text></g>'
     b += tag(4, 22, "2 HIT · UKMTO", "#fff", "#111", 8.5)
@@ -229,8 +229,8 @@ def bitcoin_lead():
     b += '<path d="M' + ' L'.join(f'{x} {y}' for x, y in pts) + '" stroke="#f7931a" stroke-width="3" fill="none" stroke-linejoin="round"/>'
     b += '<circle cx="162" cy="98" r="4.5" fill="#fff"/><circle cx="300" cy="50" r="4.5" fill="#fff"/>'
     b += tag(172, 98, "LOW ~$55,300", "#fff", "#111", 9.5)
-    b += tag(20, 96, "LOWEST SINCE SEPT 2024", "#f7931a", "#111", 9)
-    b += tag(314, 30, "$60,192 AT 15:16 UTC", "#f7931a", "#111", 10, "end")
+    b += tag(6, 100, "LOWEST SINCE SEPT 2024", "#f7931a", "#111", 9)
+    b += tag(314, 14, "$60,192 AT 15:16 UTC", "#f7931a", "#111", 10, "end")
     b += '<text x="20" y="128" font-size="9.5" font-weight="700" fill="#8a93a6">SAT 00:00 UTC</text><text x="314" y="128" font-size="9.5" font-weight="700" fill="#8a93a6" text-anchor="end">15:16</text>'
     return lead_svg(b)
 

@@ -178,10 +178,15 @@ leads = "".join(
     f'<div class="meta">{kicker(x)}<span class="right">{status(x["st"])}</span></div>'
     f'<h1>{e(x["h"])}</h1><p>{e(x["p"])}</p></div>' for x in LEADS)
 
+def card_art(svg):
+    """Fill the card width; trims about 1 px off the top and bottom of the drawing."""
+    return svg.replace("<svg ", '<svg preserveAspectRatio="xMidYMid slice" ', 1)
+
+
 cards = "".join(
     f'<div class="card" style="--c:{rc(x["r"])}"><div class="band" style="background:{rc(x["r"])}"><span class="n">{N[x["k"]]}</span>{e(x["tag"])}'
     f'<span class="bs2">{CHECK if x["st"][0] == "CONFIRMED" else ""}{e(x["st"][1])}</span></div>'
-    f'<div class="art2">{x["art"]}</div><h2>{e(x["h"])}</h2><p>{e(x["p"])}</p></div>' for x in CARDS)
+    f'<div class="art2">{card_art(x["art"])}</div><h2>{e(x["h"])}</h2><p>{e(x["p"])}</p></div>' for x in CARDS)
 
 LBL = {"claim": '<span class="st claim">CLAIM</span>', "report": '<span class="st rep">REPORTED</span>', "": ""}
 
@@ -213,9 +218,9 @@ for b in BRIEFS:
     pins.append(dict(n=N[b[0]], lon=b[6], lat=b[7], c=rc(b[1]), big=0))
 OFFMAP = [N[x["k"]] for x in LEADS + CARDS if x["lon"] is None]
 
-V1 = open(os.path.join(ROOT, "build", "index_v1.html"), encoding="utf-8").read()
-LAND = re.search(r"const land = (\[.*?\]);\n  const water", V1, re.S).group(1)
-WATER = re.search(r"const water = (\[.*?\]);\n  const poly", V1, re.S).group(1)
+MAPDATA = open(os.path.join(ROOT, "tools", "mapdata.js"), encoding="utf-8").read()
+LAND = re.search(r"const land = (\[.*?\]);\n", MAPDATA, re.S).group(1)
+WATER = re.search(r"const water = (\[.*?\]);\n", MAPDATA, re.S).group(1)
 
 MAPJS = f"""
 (function () {{
