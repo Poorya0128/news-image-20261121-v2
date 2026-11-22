@@ -1,8 +1,8 @@
 # Saturday Finale — 21 November 2026
 
-[![news-image-20261121](https://make.fun/badges/news-image-20261121/entries/Poorya0128.svg)](https://make.fun/bounty/news-image-20261121)
-[![news-image-20261121](https://make.fun/badges/news-image-20261121/rank/Poorya0128.svg)](https://make.fun/bounty/news-image-20261121)
-[![news-image-20261121](https://make.fun/badges/news-image-20261121/score/Poorya0128.svg)](https://make.fun/bounty/news-image-20261121)
+[![make.fun · news-image-20261121](https://make.fun/badge/news-image-20261121.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
+[![rank](https://make.fun/badge/news-image-20261121/Poorya0128/news-image-20261121-v2/rank.svg)](https://make.fun/bounty/news-image-20261121/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
+[![reward](https://make.fun/badge/news-image-20261121/Poorya0128/news-image-20261121-v2/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
 One 1024×1024 newspaper front page summing up **Saturday 21 November 2026**: 35 stories from 8 regions, three lead cards (tankers off Oman, COP31 overtime, the 'El Chapo Isidro' seizure), ten small cards, a world-in-time strip, world-in-numbers figures, a world map with story pins, a DATE CHECK box that keeps Friday's news out, and the numbered briefs 14–35. Every illustration is an original Pillow drawing, not a photo.
 
