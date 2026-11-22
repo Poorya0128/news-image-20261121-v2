@@ -1,0 +1,6 @@
+<!doctype html><html><body style="margin:0;overflow:hidden;width:1024px;height:1024px;background:#000">
+<img id="i" src="../entry.png" style="position:absolute;image-rendering:pixelated;width:2048px;height:2048px">
+<script>
+const [x, y] = location.hash.slice(1).split(',').map(Number);
+const i = document.getElementById('i'); i.style.left = (-x * 2) + 'px'; i.style.top = (-y * 2) + 'px';
+</script></body></html>

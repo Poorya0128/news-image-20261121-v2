@@ -48,7 +48,7 @@ def baltic(w=328, h=132):
     <rect x="-22" y="-9" width="44" height="2"/><rect x="-12" y="9.5" width="24" height="1.6"/></g>
     <path d="M286 96 L306 96 L303 101 L289 101Z" fill="#f28c28"/>'''
     b += _tag(8, 6, "2 DRONES · LIKELY UKRAINIAN, SAYS FINLAND", "#111", "#ffe1a8", 9.5)
-    b += _tag(262, 54, "HELICOPTER", "#111", "#fff", 8.5)
+    b += _tag(232, 54, "HELICOPTER 10:34", "#111", "#fff", 8.5)
     b += _tag(8, 90, "16 CREW EVACUATED", "#f28c28", "#111", 9.5)
     b += _cap(w, h, "GULF OF FINLAND · WEST OF SUURSAARI")
     return svg(w, h, b)
@@ -150,9 +150,9 @@ def bepi(w=238, h=62):
 def quake(w=238, h=62):
     b = '''<rect width="238" height="62" fill="#0f7c86"/>
     <path d="M0 30 L40 30 L46 22 L52 40 L58 10 L64 50 L70 16 L76 44 L82 26 L88 34 L94 30 L238 30" stroke="#fff" stroke-width="2" fill="none" stroke-linejoin="round"/>
-    <text x="110" y="24" font-size="22" font-weight="900" fill="#ffd36b" font-family="Head">M6.8</text>'''
-    b += _tag(110, 34, "132 KM DEEP", "#fff", "#0f7c86", 10)
-    b += _tag(188, 34, "09:42 UTC", "#111", "#fff", 9.5)
+    <text x="106" y="26" font-size="24" font-weight="900" fill="#ffd36b" font-family="Head">M6.8</text>'''
+    b += _tag(162, 10, "09:42 UTC", "#111", "#fff", 9.5)
+    b += _tag(106, 36, "132 KM DEEP", "#fff", "#0f7c86", 10)
     return svg(w, h, b)
 
 

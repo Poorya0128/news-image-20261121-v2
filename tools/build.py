@@ -33,30 +33,30 @@ LEADS = [
          p="The US-sanctioned Sparta II burned west of Suursaari island. Finland says the attack was likely Ukrainian; all 16 crew were evacuated as the ship drifted into Finnish waters."),
     dict(k="hormuz", r="ME", kick="Middle East · Iran war", src="AP · UKMTO · AL JAZEERA", lon=56.3, lat=26.6,
          art=art.hormuz(), h="Three tankers hit in the Strait of Hormuz",
-         p="Apparent Iranian strikes on shipping, as Tehran unveils a dual-missile launcher underground and hosts Qatari mediators."),
+         p="Apparent Iranian strikes on shipping, as Tehran unveils an underground missile launcher and hosts Qatari mediators."),
     dict(k="sinaloa", r="AM", kick="Mexico · cartels", src="AP · REUTERS · CBS", lon=-108.4, lat=25.6,
          art=art.sinaloa(), h="“El Chapo Isidro” captured as 11 die in Sinaloa",
-         p="Fausto Isidro Meza Flores, on the FBI’s Ten Most Wanted list, was seized in Guasave. Four soldiers and seven gunmen were killed."),
+         p="Fausto Isidro Meza Flores, on the FBI’s Ten Most Wanted list, was seized in Guasave; 4 soldiers and 7 gunmen died."),
 ]
 
 # ---------------------------------------------------------------- 8 drawn cards
 CARDS = [
     dict(k="kryvyi", r="EU", kick="Ukraine war", src="AP · UKR AIR FORCE", lon=33.4, lat=47.9, art=art.kryvyi(),
-         h="Missiles kill 2 in Zelensky’s home city", p="A boy of 7 and a medic die in Kryvyi Rih."),
+         h="Missiles kill boy, 7, and medic in Kryvyi Rih", p="3 ballistic missiles, 148 drones overnight."),
     dict(k="cop", r="GL", kick="Climate · Antalya", src="REUTERS · GUARDIAN", lon=30.7, lat=36.9, art=art.cop31(),
-         h="COP31 deadlocked over fossil fuels", p="Talks halted for the night, a day over time."),
+         h="COP31 deadlocked over the move away from fossil fuels", p="Talks halted for the night, a day over time."),
     dict(k="robots", r="GL", kick="UN · Geneva", src="REUTERS · AP · NPR", lon=6.1, lat=46.2, art=art.robots(),
-         h="“Killer robot” talks end without treaty", p="128 states agree only to “elaborate” rules."),
-    dict(k="bepi", r="GL", kick="Space · Mercury", src="ESA · AP · NATURE", lon=None, lat=None, art=art.bepi(),
-         h="BepiColombo enters orbit around Mercury", p="37-minute burn ends an eight-year cruise."),
+         h="UN “killer robot” talks end without a treaty mandate", p="128 states agree only to “elaborate” rules."),
+    dict(k="bepi", r="GL", kick="Space · ESA–JAXA", src="ESA · AP · NATURE", lon=None, lat=None, art=art.bepi(),
+         h="BepiColombo enters orbit around Mercury after 8 years", p="A 37-minute engine burn from 18:24 UTC."),
     dict(k="quake", r="AP", kick="Banda Sea · Indonesia", src="USGS · GFZ", lon=127.5, lat=-7.7, art=art.quake(),
-         h="Deep M6.8 quake felt in Timor and Darwin", p="USGS green alert; no tsunami threat."),
+         h="Deep M6.8 quake shakes Timor-Leste and Darwin", p="USGS green alert; no tsunami threat."),
     dict(k="france", r="EU", kick="France · protests", src="REUTERS · BLOOMBERG", lon=2.35, lat=48.9, art=art.france(),
-         h="Sixth weekend of cost-of-living marches", p="Turnout dips after wage and school pledges."),
-    dict(k="gaza", r="ME", kick="Gaza City", src="REUTERS · GAZA MoH", lon=34.45, lat=31.5, art=art.gaza(),
-         h="Strike on food-aid vehicle kills three", p="WCK says the truck was not its own."),
+         h="France marches for a sixth weekend over living costs", p="Turnout dips after wage and school pledges."),
+    dict(k="gaza", r="ME", kick="Gaza City · aid", src="REUTERS · GAZA MoH", lon=34.45, lat=31.5, art=art.gaza(),
+         h="Israeli strike on food-aid vehicle kills three", p="WCK says the truck was not its own."),
     dict(k="eu", r="EU", kick="EU · Brussels", src="AFP · POLITICO", lon=4.35, lat=50.85, art=art.eubudget(),
-         h="Costa cuts €204bn from EU budget plan", p="Adds a Big Tech tax; Merz says still too high."),
+         h="Costa cuts €204bn from the EU’s 2028–34 budget plan", p="Adds a Big Tech tax; Merz: still too high."),
 ]
 
 # ---------------------------------------------------------------- briefs
@@ -108,14 +108,14 @@ SPORT = [
 ]
 
 TIMELINE = [
-    ("~04:00", "Geneva arms talks end"),
-    ("Overnight", "148 drones hit Ukraine"),
-    ("Morning", "Sparta II set ablaze"),
-    ("09:42", "M6.8 Banda Sea quake"),
-    ("10:34", "Heli breach suspected"),
-    ("15:00", "EPL kick-offs"),
-    ("18:24", "Mercury orbit burn"),
-    ("Night", "COP31 halted, no deal"),
+    ("Overnight", "148 drones at Ukraine", "kryvyi"),
+    ("~04:00", "Geneva arms talks end", "robots"),
+    ("Morning", "Sparta II set ablaze", "baltic"),
+    ("09:42", "M6.8 Banda Sea quake", "quake"),
+    ("10:34", "Suspected heli breach", "heli"),
+    ("15:00", "Chelsea–Leeds kick-off", "epl"),
+    ("18:24", "Mercury orbit burn", "bepi"),
+    ("Night", "COP31 halted, no deal", "cop"),
 ]
 
 NOT_COUNTED = ("<b>Friday 20 Nov:</b> missiles in Poland · Peru M6.7 quake · Brazil storm · UK–EU deal. "
@@ -146,7 +146,8 @@ def rc(r):
 region_bar = "".join(
     f'<div style="flex:{COUNT[r] + 2};background:{c}">{e(name)} {COUNT[r]}</div>' for r, (name, c) in REGIONS.items())
 
-timeline = "".join(f'<div class="tl"><b>{e(t)}{" UTC" if t[0].isdigit() or t[0] == "~" else ""}</b>{e(x)}</div>' for t, x in TIMELINE)
+REG = {k: r for _, k, r in ORDER}
+timeline = "".join(f'<div class="tl"><b>{badge(N[k], rc(REG[k]), "t")}{e(t)}{" UTC" if t[0].isdigit() or t[0] == "~" else ""}</b>{e(x)}</div>' for t, x, k in TIMELINE)
 
 leads = "".join(f'''<div class="lead">
   <div class="art">{x["art"]}</div>
@@ -205,37 +206,38 @@ MAPJS = f"""
   const pins = {json.dumps(pins)};
   pins.filter(p => !p.big).forEach(p => {{ const [x, y] = P(p.lon, p.lat);
     s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="2.6" fill="' + p.c + '" stroke="#fff" stroke-width=".8"/>'; }});
-  const off = {{1: [-4, -13], 2: [16, -6], 3: [-2, 15], 4: [16, -2], 5: [-6, 16], 6: [-16, 8], 8: [12, 12], 9: [-16, -12], 10: [12, 14], 11: [-4, -16]}};
+  const off = {{1: [-2, -11], 2: [16, -6], 3: [-2, 15], 4: [18, -6], 5: [-14, 12], 6: [-20, 14], 8: [12, 12], 9: [-24, -2], 10: [12, 14], 11: [-14, -14]}};
   pins.filter(p => p.big).forEach(p => {{ const [x, y] = P(p.lon, p.lat); const d = off[p.n] || [12, -10];
     const bx = x + d[0], by = y + d[1];
     s += '<line x1="' + x + '" y1="' + y + '" x2="' + bx + '" y2="' + by + '" stroke="#16181d" stroke-width=".9"/>';
     s += '<circle cx="' + x + '" cy="' + y + '" r="2.2" fill="#16181d"/>';
     s += '<circle cx="' + bx + '" cy="' + by + '" r="7.2" fill="' + p.c + '" stroke="#fff" stroke-width="1.2"/>';
     s += '<text x="' + bx + '" y="' + (by + 3.4) + '" font-size="' + (p.n > 9 ? 8.5 : 9.5) + '" font-weight="800" fill="#fff" text-anchor="middle" font-family="Body">' + p.n + '</text>'; }});
-  s += '<g transform="translate(4 112)"><rect width="74" height="34" rx="3" fill="#1a1236"/><circle cx="60" cy="17" r="10" fill="#9b948c"/>' +
+  s += '<g transform="translate(4 112)"><rect width="86" height="34" rx="3" fill="#1a1236"/><circle cx="72" cy="17" r="10" fill="#9b948c"/>' +
        '<circle cx="12" cy="11" r="7.2" fill="{REGIONS["GL"][1]}" stroke="#fff" stroke-width="1.2"/><text x="12" y="14.4" font-size="9.5" font-weight="800" fill="#fff" text-anchor="middle" font-family="Body">{N["bepi"]}</text>' +
-       '<text x="24" y="14" font-size="7.5" font-weight="800" fill="#fff" font-family="Body">OFF MAP</text><text x="6" y="29" font-size="7.5" font-weight="800" fill="#f2c94c" font-family="Body">AT MERCURY</text></g>';
+       '<text x="23" y="14" font-size="8" font-weight="800" fill="#fff" font-family="Body">OFF MAP:</text><text x="6" y="28" font-size="8" font-weight="800" fill="#f2c94c" font-family="Body">AT MERCURY</text></g>';
   document.getElementById('map').innerHTML = s;
 }})();
 """
 
 CSS = open(os.path.join(ROOT, "tools", "style.css"), encoding="utf-8").read()
 
+assert N[BRIEFS[0][0]] == 12 and N[BRIEFS[-1][0]] == 40
 PAGE = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>The One-Day World · Saturday 21 November 2026</title><style>{CSS}</style></head>
 <body><div class="page">
 <header class="mast">
   <div class="dial">{art.daydial(66)}<div class="doy">DAY 325 · 40 LEFT</div></div>
   <div class="mt">
-    <div class="kick1">THE ONE-DAY WORLD &nbsp;·&nbsp; {TOTAL} STORIES · 6 REGIONS + SPACE · {DRAWN} DRAWN · ONE PAGE</div>
+    <div class="kick1">THE ONE-DAY WORLD &nbsp;·&nbsp; {TOTAL} STORIES · 5 REGIONS + GLOBAL · {DRAWN} DRAWINGS · ONE PAGE</div>
     <div class="title">Saturday 21 November 2026</div>
     <div class="sub">Everything on this page happened, or was first reported, on Saturday 21 November 2026 (UTC). Every item names its source.</div>
   </div>
   <div class="trust"><div class="th">HOW TO READ</div>
-    <div><span class="bd s" style="background:#2f5aa8">1</span> story no. = map pin</div>
+    <div><span class="bd s" style="background:#2f5aa8">1</span> story number, also on map</div>
     <div><span class="claim">CLAIM</span> one side’s word, attributed</div>
     <div><span class="off"></span> official data or statement</div>
-    <div class="mk">Markets closed: it’s Saturday</div></div>
+    <div class="mk">Times in UTC · markets shut (Saturday)</div></div>
 </header>
 <div class="rbar">{region_bar}</div>
 <div class="tline"><div class="tlh">THE DAY<br>IN UTC</div>{timeline}</div>
@@ -245,7 +247,7 @@ PAGE = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   <div class="mapbox"><div class="mh">WHERE IT HAPPENED</div>
     <svg id="map" width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg"></svg>
     <div class="lg">{legend}</div>
-    <div class="mn">Big pins: stories 1–11 · dots: briefs</div></div>
+    <div class="mn">Numbered pins: stories 1–11 · small dots: briefs 12–40</div></div>
   <div class="also"><div class="ah">ALSO ON SATURDAY 21 NOVEMBER</div>
     <div class="acols"><div>{briefs_l}</div><div>{briefs_r}</div></div></div>
 </div>
